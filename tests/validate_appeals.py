@@ -159,11 +159,15 @@ def main() -> int:
             fail("appeals.js must list all 50 states and D.C.")
         if "cc-tracker-height" not in js:
             fail("appeals.js must postMessage height")
+        if 'fetch("/data/appeals.json")' not in js:
+            fail("appeals.js must fetch /data/appeals.json from the site root")
+        if "8765" in js:
+            fail("appeals.js must not mention the local dev port")
 
     if INDEX.is_file():
         idx = INDEX.read_text(encoding="utf-8")
-        if "appeals.html" not in idx:
-            fail("public/index.html must link to appeals.html")
+        if "/appeals" not in idx and "appeals.html" not in idx:
+            fail("public/index.html must link to /appeals")
 
     public_root = ROOT / "public"
     for path in public_root.rglob("*"):
