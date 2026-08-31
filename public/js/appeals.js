@@ -69,12 +69,7 @@
     return rows;
   }
 
-  function renderMethod(payload) {
-    var box = $("method-copy");
-    var method = (payload.meta && payload.meta.method) || [];
-    box.innerHTML = method.map(function (s) {
-      return "<p>" + escapeHtml(s) + "</p>";
-    }).join("");
+  function renderUpdated(payload) {
     if (payload.meta && payload.meta.lastUpdated) {
       $("updated-date").textContent = "Last updated " + payload.meta.lastUpdated;
     }
@@ -150,7 +145,7 @@
     .then(function (payload) {
       state.cases = payload.cases || [];
       state.meta = payload.meta || {};
-      renderMethod(payload);
+      renderUpdated(payload);
       renderCounts();
       renderCards();
       postHeight();

@@ -136,9 +136,9 @@
   function renderCounts() {
     var c = headlineCounts(state.rows);
     $("counts").innerHTML =
-      card(c.usStates, "US states with a named-term law in force") +
-      card(c.countries, "Countries and territories with a named-term criminal offence in force") +
-      card(c.pipeline, "Pipeline instruments (named-term, not in force)");
+      card(c.usStates, "US states with a coercive-control law in force") +
+      card(c.countries, "Jurisdictions with a coercive-control criminal offense in force") +
+      card(c.pipeline, "Coercive-control Pipelines (not in force)");
   }
 
   function card(num, label) {
@@ -183,13 +183,7 @@
     postHeight();
   }
 
-  function renderMethod(payload) {
-    var method = payload.method || [];
-    $("method-copy").innerHTML = method
-      .map(function (s) {
-        return "<p>" + escapeHtml(s) + "</p>";
-      })
-      .join("");
+  function renderUpdated(payload) {
     if (payload.lastUpdated) {
       $("updated-date").textContent = "Last updated " + payload.lastUpdated;
     }
@@ -203,7 +197,7 @@
     if (named && substantive) {
       return {
         mentionOnly: false,
-        text: "This bill uses coercive control as a defined term or would create an offence or definition. Confirm against enrolled text before scoring as law."
+        text: "This bill uses coercive control as a defined term or would create an offense or definition. Confirm against enrolled text before scoring as law."
       };
     }
     return {
@@ -272,7 +266,7 @@
       .then(renderBills)
       .catch(function () {
         $("bills-body").innerHTML =
-          '<tr><td class="empty" colspan="5">Open States results did not load. Seed data in the table above remains the named-term record.</td></tr>';
+          '<tr><td class="empty" colspan="5">Open States results did not load. Seed data in the table above remains the record.</td></tr>';
         postHeight();
       });
   }
@@ -314,7 +308,7 @@
   loadInstruments()
     .then(function (payload) {
       state.rows = payload.instruments || [];
-      renderMethod(payload);
+      renderUpdated(payload);
       renderCounts();
       renderTable();
       bind();
