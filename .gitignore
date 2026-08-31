@@ -5,6 +5,7 @@ node_modules/
 .DS_Store
 GROK_PROMPT.md
 GROK_WRITE.md
+GROK_APPEALS.md
 CONTINUE_PROMPT.md
 WRITE_NOW.md
 SEED.md

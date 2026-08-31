@@ -282,3 +282,64 @@ site-footer, .site-footer {
   body { background: #fff; }
   .panel, .controls { break-inside: avoid; }
 }
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.15rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  align-items: center;
+}
+.site-nav a { text-decoration-thickness: 1px; }
+.site-nav a[aria-current="page"] {
+  color: var(--gold-deep);
+  text-decoration: none;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 0.12rem;
+}
+
+.appeal-controls {
+  display: grid;
+  grid-template-columns: minmax(12rem, 18rem) 1fr;
+  gap: 0.75rem 1rem;
+  align-items: end;
+  margin-bottom: 1rem;
+}
+.appeal-grid {
+  display: grid;
+  gap: 1rem;
+}
+.appeal-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--gold);
+  padding: 1rem 1.15rem 1.15rem;
+  box-shadow: var(--shadow);
+}
+.appeal-card h2 {
+  font-size: 1.15rem;
+  line-height: 1.3;
+  margin: 0 0 0.35rem;
+}
+.appeal-meta {
+  margin: 0 0 0.55rem;
+  color: var(--ink-mute);
+  font-size: 0.92rem;
+}
+.appeal-card p {
+  margin: 0 0 0.7rem;
+  color: var(--ink-soft);
+}
+.appeal-card p:last-child { margin-bottom: 0; }
+.appeal-links { font-weight: 700; }
+.empty-state {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 1.2rem 1.15rem;
+  color: var(--ink-soft);
+  box-shadow: var(--shadow);
+}
+@media (max-width: 900px) {
+  .appeal-controls { grid-template-columns: 1fr; }
+}

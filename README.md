@@ -22,6 +22,16 @@ Validate the JSON lock:
 python3 tests/validate.py
 ```
 
+
+Appeals view: open http://127.0.0.1:8765/appeals.html . Expected live path: https://carlton-research-law-tracker.pages.dev/appeals.html . CourtListener REST search located candidate opinions. Holdings come from the opinions themselves (official court PDFs preferred). A published opinion that names coercive control does not finish the work. The hard part is showing the pattern in a longitudinal record.
+
+Validate the appeals JSON:
+
+```bash
+python3 tests/validate_appeals.py
+```
+
+
 ## Cloudflare Pages
 
 Create a new Pages project named `carlton-research-law-tracker`. Set the output directory to `public`. Add `OPENSTATES_API_KEY` as a Pages environment variable. Do not name the project `hopeful-child-foundation`.
