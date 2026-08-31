@@ -189,7 +189,7 @@ def main() -> int:
     if not INDEX.is_file():
         fail("public/index.html missing")
     else:
-        for needle in ("Carlton Research", "Coercive Control Tracker", "August 31, 2026", "Inquire about coercive control"):
+        for needle in ("Carlton Research", "Coercive Control Law Tracker", "August 31, 2026", "Inquire about coercive control"):
             if needle.lower() not in html.lower() and needle not in html:
                 if needle.casefold() not in html.casefold():
                     fail(f"public/index.html missing {needle!r}")
