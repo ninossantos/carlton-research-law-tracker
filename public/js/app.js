@@ -153,7 +153,7 @@
 
   function renderTable() {
     var rows = visibleRows();
-    $("results-meta").textContent = "Showing " + rows.length + " of " + state.rows.length + " instrument rows.";
+    $("results-meta").textContent = "Showing " + rows.length + " of " + state.rows.length + " rows.";
     var body = $("tracker-body");
     if (!rows.length) {
       body.innerHTML = '<tr><td class="empty" colspan="8">No instruments match that search and filter.</td></tr>';
