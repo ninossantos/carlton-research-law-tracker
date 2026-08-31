@@ -196,6 +196,43 @@ def main() -> int:
         if "https://carltonresearch.com/" not in html:
             fail("public/index.html missing inquire link to https://carltonresearch.com/")
 
+    app_js = ROOT / "public" / "js" / "app.js"
+    if app_js.is_file():
+        app_text = app_js.read_text(encoding="utf-8", errors="replace")
+        if "8765" in app_text:
+            fail("public/js/app.js must not mention 8765")
+        if "local server" in app_text.lower() or "could not load instrument data" in app_text:
+            fail("public/js/app.js must not contain leftover local-dev error copy")
+    else:
+        fail("public/js/app.js missing")
+
+    if INDEX.is_file() and "8765" in html:
+        fail("public/index.html must not mention 8765")
+
+    embed = ROOT / "public" / "js" / "instruments-data.js"
+    if not embed.is_file():
+        fail("public/js/instruments-data.js missing")
+    else:
+        embed_text = embed.read_text(encoding="utf-8", errors="replace")
+        if "CC_INSTRUMENTS" not in embed_text:
+            fail("public/js/instruments-data.js does not contain CC_INSTRUMENTS")
+        json_part = embed_text.strip()
+        if json_part.startswith("window.CC_INSTRUMENTS"):
+            json_part = json_part.split("=", 1)[1].strip()
+            if json_part.endswith(";"):
+                json_part = json_part[:-1].strip()
+        try:
+            embedded = json.loads(json_part)
+            embedded_rows = embedded.get("instruments")
+            if not isinstance(embedded_rows, list) or len(embedded_rows) != len(rows):
+                fail(
+                    "window.CC_INSTRUMENTS.instruments length "
+                    f"{0 if not isinstance(embedded_rows, list) else len(embedded_rows)} "
+                    f"!= public/data/instruments.json ({len(rows)})"
+                )
+        except Exception as exc:
+            fail(f"public/js/instruments-data.js is not valid CC_INSTRUMENTS JSON: {exc}")
+
     if errors:
         print("FAIL")
         for e in errors:

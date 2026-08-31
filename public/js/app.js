@@ -251,6 +251,9 @@
   }
 
   function loadInstruments() {
+    if (window.CC_INSTRUMENTS && Array.isArray(window.CC_INSTRUMENTS.instruments)) {
+      return Promise.resolve(window.CC_INSTRUMENTS);
+    }
     return fetch("/data/instruments.json").then(function (res) {
       if (!res.ok) throw new Error("fetch");
       return res.json();
