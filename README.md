@@ -1,6 +1,6 @@
 # Coercive Control Named-Term Tracker
 
-Carlton Research, LLC publishes this tracker. The count includes a statute only when the official text uses the words coercive control or coercive controlling, or the UK statutory phrase controlling or coercive behaviour. Nearby words such as coercion, controlling behavior, or emotional abuse do not qualify. Secondary roundups, including USA Today April 24, 2026, are not the source.
+Carlton Research, LLC publishes this tracker. The count includes a statute only when the official text uses the words coercive control or coercive controlling, or the UK statutory phrase controlling or coercive behaviour. Nearby words such as coercion, controlling behavior, or emotional abuse do not qualify. Official statute text is the source.
 
 A statute that names coercive control does not finish the work. The hard part is showing the pattern in a longitudinal record. Conflict, including hostility, is not that pattern.
 

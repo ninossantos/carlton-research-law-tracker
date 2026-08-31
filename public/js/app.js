@@ -190,8 +190,6 @@
         return "<p>" + escapeHtml(s) + "</p>";
       })
       .join("");
-    var usa = $("usa-today-copy");
-    if (usa && payload.usaTodayErrors) usa.textContent = payload.usaTodayErrors;
     if (payload.lastUpdated) {
       $("updated-date").textContent = "Last updated " + payload.lastUpdated;
     }

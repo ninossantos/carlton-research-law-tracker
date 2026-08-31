@@ -105,8 +105,8 @@ def main() -> int:
         for i, s in enumerate(method):
             scan_text(f"method[{i}]", s)
 
-    usa = a.get("usaTodayErrors", "")
-    scan_text("usaTodayErrors", usa)
+    if "usaTodayErrors" in a:
+        fail("usaTodayErrors must not appear; Carlton Research does not publish corrections to others' work")
 
     rows = a.get("instruments")
     if not isinstance(rows, list) or not rows:

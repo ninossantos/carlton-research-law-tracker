@@ -261,12 +261,6 @@ table.tracker th[aria-sort="descending"]::after { content: " \25BC"; }
 .panel p { margin: 0 0 0.8rem; color: var(--ink-soft); }
 .mention { color: var(--ink-mute); font-size: 0.9rem; }
 
-.corrections {
-  margin-top: 2rem;
-  border-top: 1px solid var(--rule);
-  padding-top: 1.25rem;
-}
-.corrections h2 { font-size: 1.2rem; margin: 0 0 0.5rem; }
 
 site-footer, .site-footer {
   border-top: 1px solid var(--rule);
