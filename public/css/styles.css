@@ -141,7 +141,7 @@ h1 {
   background: var(--gold);
   color: var(--ink);
   border: 2px solid var(--gold-deep);
-  padding: 0.9rem 1.5rem;
+  padding: 0.45rem 1.5rem;
   font-size: 1.12rem;
   font-weight: 700;
   line-height: 1.3;
