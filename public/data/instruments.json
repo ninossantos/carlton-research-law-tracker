@@ -589,6 +589,40 @@
       "sourceUrl": "https://laws-lois.justice.gc.ca/eng/acts/D-3.4/section-2.html",
       "namedTerm": false,
       "scored": false
+    },
+    {
+      "id": "int-nz-fva2018",
+      "geographyType": "country",
+      "jurisdiction": "New Zealand",
+      "jurisdictionCode": "NZ",
+      "instrument": "Family Violence Act 2018",
+      "citation": "Family Violence Act 2018, family-violence definition",
+      "status": "in-force",
+      "domain": "definitional",
+      "accomplishes": "New Zealand includes coercive or controlling behaviour in the Family Violence Act 2018 definition of family violence. That inclusion is civil and definitional. The Act does not create a standalone criminal offence of coercive control.",
+      "date": "2018",
+      "dateSort": "2018-07-01",
+      "sourceUrl": "https://www.legislation.govt.nz/act/public/2018/0046/latest/LMS114533.html",
+      "namedTerm": true,
+      "scored": true,
+      "notes": "Do not count New Zealand in the headline criminal-in-force country total."
+    },
+    {
+      "id": "int-sa-2025",
+      "geographyType": "country",
+      "jurisdiction": "South Australia",
+      "jurisdictionCode": "AU-SA",
+      "instrument": "Criminal Law Consolidation (Coercive Control) Amendment Act 2025",
+      "citation": "No 35 of 2025, s.2 commencement by proclamation",
+      "status": "enacted-not-commenced",
+      "domain": "criminal",
+      "accomplishes": "South Australia enacted a standalone coercive control offence through the Criminal Law Consolidation (Coercive Control) Amendment Act 2025 (No 35 of 2025). Commencement awaits a day fixed by proclamation, so the offence is not in force.",
+      "date": "September 2025",
+      "dateSort": "2025-09-04",
+      "sourceUrl": "https://classic.austlii.edu.au/au/legis/sa/num_act/clccaa202535o2025550/s2.html",
+      "namedTerm": true,
+      "scored": true,
+      "notes": "AustLII s.2: the Act comes into operation on a day to be fixed by proclamation."
     }
   ]
 }
