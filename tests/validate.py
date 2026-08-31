@@ -55,7 +55,15 @@ DASH = re.compile(r"[\u2014\u2013]")
 BANNED_TERMS = re.compile(r"\b(codes|coding|UNCODED)\b")
 KEY_PAT = re.compile(r"(OPENSTATES_API_KEY|api[_-]?key\s*[:=]|sk-[A-Za-z0-9]{8,})", re.I)
 DONATE = re.compile(r"donate", re.I)
-HOPEFUL = re.compile(r"hopeful child", re.I)
+HOPEFUL = re.compile(r"hopeful[\s\-]*child", re.I)
+WP_NAV_HREFS = [
+    "https://carltonresearch.com/",
+    "https://carltonresearch.com/services/",
+    "https://carltonresearch.com/about/",
+    "https://carltonresearch.com/contact/",
+    "https://tracker.carltonresearch.com/",
+]
+SHORT_CC = re.compile(r"\bCC\b")
 ORANGE = re.compile(r"#f55f0d", re.I)
 OPENSTATES_TOKEN = re.compile(r"OPENSTATES")
 
@@ -172,7 +180,7 @@ def main() -> int:
         if DONATE.search(text):
             fail(f"{rel}: contains donate")
         if HOPEFUL.search(text):
-            fail(f"{rel}: contains Hopeful Child")
+            fail(f"{rel}: contains hopefulchild")
         if ORANGE.search(text):
             fail(f"{rel}: contains #f55f0d")
 
@@ -195,6 +203,29 @@ def main() -> int:
                     fail(f"public/index.html missing {needle!r}")
         if "https://carltonresearch.com/" not in html:
             fail("public/index.html missing inquire link to https://carltonresearch.com/")
+
+    html_pages = [INDEX, ROOT / "public" / "appeals.html"]
+    for page in html_pages:
+        rel = page.relative_to(ROOT)
+        if not page.is_file():
+            fail(f"{rel} missing")
+            continue
+        page_html = page.read_text(encoding="utf-8")
+        for href in WP_NAV_HREFS:
+            if href not in page_html:
+                fail(f"{rel} missing WordPress-site nav href {href}")
+        title_m = re.search(r"<title>([^<]+)</title>", page_html, re.I)
+        h1_m = re.search(r"<h1[^>]*>([^<]+)</h1>", page_html, re.I)
+        kicker_m = re.search(r'class="wordmark-kicker"[^>]*>([^<]+)', page_html)
+        for label, match in (("title", title_m), ("h1", h1_m), ("wordmark-kicker", kicker_m)):
+            if not match:
+                fail(f"{rel}: missing {label}")
+                continue
+            heading = re.sub(r"\s+", " ", match.group(1)).strip()
+            if "Coercive Control" not in heading:
+                fail(f"{rel} {label} shortens coercive control: {heading!r}")
+            if SHORT_CC.search(heading):
+                fail(f"{rel} {label} shortens coercive control: {heading!r}")
 
     app_js = ROOT / "public" / "js" / "app.js"
     if app_js.is_file():
