@@ -2,7 +2,7 @@
   "meta": {
     "title": "Coercive Control Appeal Tracker",
     "lastUpdated": "August 31, 2026",
-    "sourceNote": "Curated set from public appellate opinions, not every case in the country. Research, not legal advice.",
+    "sourceNote": "Curated set from public appellate opinions, not every case in the country. Research, not legal advice. CourtListener search located candidate opinions. Holdings come from the opinions themselves.",
     "method": [
       "A published opinion that names coercive control does not finish the work.",
       "The hard part is showing the pattern in a longitudinal record.",
@@ -45,6 +45,22 @@
       "source": "official PDF"
     },
     {
+      "id": "vuth-v-tavakoli",
+      "state": "Washington",
+      "stateAbbr": "WA",
+      "court": "Washington Court of Appeals, Division Two",
+      "title": "Sreya Vuth v. Mehran Tavakoli",
+      "docket": "60445-1-II",
+      "citation": "",
+      "date": "June 23, 2026",
+      "dateSort": "2026-06-23",
+      "disposition": "reversed",
+      "remanded": true,
+      "summary": "Vuth appealed partial summary judgment that limited her intentional infliction of emotional distress claim to the three-year limitations window. The Court of Appeals reversed and remanded. RCW 7.105 defines domestic violence to include coercive control, a pattern of behavior that unreasonably interferes with free will and personal liberty. On the complaint's alleged facts, the court described Tavakoli's coercive control as glaringly obvious and held the continuing-tort doctrine applies to those claims when domestic violence is a continuing course of conduct. Published opinion.",
+      "opinionUrl": "https://www.courts.wa.gov/opinions/pdf/D2%2060445-1-II%20Published%20Opinion.pdf",
+      "source": "official PDF"
+    },
+    {
       "id": "asbach-v-couto",
       "state": "Washington",
       "stateAbbr": "WA",
@@ -77,6 +93,22 @@
       "source": "official PDF"
     },
     {
+      "id": "nan-n-v-rex-r",
+      "state": "Massachusetts",
+      "stateAbbr": "MA",
+      "court": "Massachusetts Appeals Court",
+      "title": "Nan N. v. Rex R.",
+      "docket": "AC 25-P-524",
+      "citation": "",
+      "date": "March 20, 2026",
+      "dateSort": "2026-03-20",
+      "disposition": "affirmed-in-part",
+      "remanded": true,
+      "summary": "Rex R. appealed a G.L. c. 209A abuse-prevention order, arguing insufficient evidence and that the judge applied the 2024 coercive control definition to conduct before September 18, 2024. The Appeals Court held the evidence supported abuse by placing Nan N. in fear of imminent serious physical harm and did not decide the coercive control timing argument. The court otherwise affirmed the order and remanded only so the Probate and Family Court could hold a timely extension hearing, because the judge had extended the order beyond one year too soon.",
+      "opinionUrl": "https://www.courtlistener.com/opinion/10811603/nan-n-v-rex-r/",
+      "source": "CourtListener"
+    },
+    {
       "id": "marriage-of-hoch",
       "state": "California",
       "stateAbbr": "CA",
@@ -89,8 +121,8 @@
       "disposition": "affirmed-in-part",
       "remanded": false,
       "summary": "Both spouses appealed. The Court of Appeal affirmed the domestic violence restraining order against Michael and reversed the mutual order against Marcie. Michael's free-exercise challenge failed as to the order grounded in coercive control: tracking whereabouts, accessing electronic devices and online accounts, monitoring reading material, restricting movement, and appearing uninvited. Harassment, annoyance, and coercive control can support an order without a showing of fear. Certified for publication.",
-      "opinionUrl": "https://www.courts.ca.gov/opinions/documents/G063467.PDF",
-      "source": "official PDF"
+      "opinionUrl": "https://www.courtlistener.com/opinion/10808084/marriage-of-hoch/",
+      "source": "CourtListener"
     },
     {
       "id": "ds-v-wg",
@@ -137,24 +169,8 @@
       "disposition": "reversed",
       "remanded": true,
       "summary": "R.R. appealed denial of a domestic violence restraining order against his former spouse. The Court of Appeal reversed and remanded with directions to enter the order. The trial court misapplied the Domestic Violence Prevention Act. Family Code section 6320 covers stalking, harassment, and disturbing the peace, including coercive control such as monitoring movements. Past abuse, which the trial court called alarming, sufficed. A showing of probable future abuse was not required. Certified for publication.",
-      "opinionUrl": "https://www.courts.ca.gov/opinions/documents/B339866A.PDF",
-      "source": "official PDF"
-    },
-    {
-      "id": "vuth-v-tavakoli",
-      "state": "Washington",
-      "stateAbbr": "WA",
-      "court": "Washington Court of Appeals, Division Two",
-      "title": "Sreya Vuth v. Mehran Tavakoli",
-      "docket": "60445-1-II",
-      "citation": "",
-      "date": "June 23, 2026",
-      "dateSort": "2026-06-23",
-      "disposition": "reversed",
-      "remanded": true,
-      "summary": "Vuth appealed partial summary judgment that limited her intentional infliction of emotional distress claim to the three-year limitations window. The Court of Appeals reversed and remanded. RCW 7.105 defines domestic violence to include coercive control, a pattern of behavior that unreasonably interferes with free will and personal liberty. On the complaint's alleged facts, the court described Tavakoli's coercive control as glaringly obvious and held the continuing-tort doctrine applies to those claims when domestic violence is a continuing course of conduct. Published opinion.",
-      "opinionUrl": "https://www.courts.wa.gov/opinions/pdf/D2%2060445-1-II%20Published%20Opinion.pdf",
-      "source": "official PDF"
+      "opinionUrl": "https://www.courtlistener.com/opinion/10776990/rr-v-cr/",
+      "source": "CourtListener"
     },
     {
       "id": "da-v-ac",
@@ -170,6 +186,22 @@
       "remanded": false,
       "summary": "The defendant appealed a protective order and the denial of a motion to dismiss. The Appellate Court affirmed. The plaintiff's testimony, with that of the guardian ad litem, established a prima facie case of domestic violence under section 46b-1(b), which includes coercive control. The defendant relied on a superseded revision of section 46b-15 and left stalking and coercive control unchallenged.",
       "opinionUrl": "https://www.jud.ct.gov/external/supapp/Cases/AROap/AP235/AP235.328.pdf",
+      "source": "official PDF"
+    },
+    {
+      "id": "chin-v-chin",
+      "state": "Hawaii",
+      "stateAbbr": "HI",
+      "court": "Hawaii Intermediate Court of Appeals",
+      "title": "Chin v. Chin",
+      "docket": "CAAP-23-0000489",
+      "citation": "",
+      "date": "June 17, 2025",
+      "dateSort": "2025-06-17",
+      "disposition": "reversed",
+      "remanded": false,
+      "summary": "Richard Chin appealed an HRS chapter 586 order for protection. The family court struggled with coercive control, noting mutual acrimony in text messages, and instead rested the order on a single text treated as psychological abuse. The Intermediate Court of Appeals reversed. A single text is not a course of conduct under HRS 586-1. Summary disposition, not for publication.",
+      "opinionUrl": "https://www.courts.state.hi.us/wp-content/uploads/2025/06/CAAP-23-0000489sdo.pdf",
       "source": "official PDF"
     },
     {
@@ -201,24 +233,8 @@
       "disposition": "reversed",
       "remanded": true,
       "summary": "The plaintiff appealed after the trial court denied a domestic violence restraining order. The Appellate Court applied a broader definition of coercive control under section 46b-1(b)(4) than the trial court used: the statutory examples are not an exclusive list. Even if conduct while the parties lived together amounted to coercive control, that coercive control had ended by the time of the application. The plaintiff failed to establish a prima facie case under section 46b-1(b)(4). The form of judgment was reversed and the case remanded with direction to dismiss under Practice Book section 15-8.",
-      "opinionUrl": "https://www.jud.ct.gov/external/supapp/Cases/AROap/AP232/AP232.198.pdf",
-      "source": "official PDF"
-    },
-    {
-      "id": "chin-v-chin",
-      "state": "Hawaii",
-      "stateAbbr": "HI",
-      "court": "Hawaii Intermediate Court of Appeals",
-      "title": "Chin v. Chin",
-      "docket": "CAAP-23-0000489",
-      "citation": "",
-      "date": "June 17, 2025",
-      "dateSort": "2025-06-17",
-      "disposition": "reversed",
-      "remanded": false,
-      "summary": "Richard Chin appealed an HRS chapter 586 order for protection. The family court struggled with coercive control, noting mutual acrimony in text messages, and instead rested the order on a single text treated as psychological abuse. The Intermediate Court of Appeals reversed. A single text is not a course of conduct under HRS 586-1. Summary disposition, not for publication.",
-      "opinionUrl": "https://www.courts.state.hi.us/wp-content/uploads/2025/06/CAAP-23-0000489sdo.pdf",
-      "source": "official PDF"
+      "opinionUrl": "https://www.courtlistener.com/opinion/10513132/j-r-v-n-k/",
+      "source": "CourtListener"
     },
     {
       "id": "skoch-v-skoch",
@@ -234,7 +250,7 @@
       "remanded": false,
       "summary": "Father appealed a dissolution decree that found domestic violence, awarded Mother sole custody, and granted her attorney fees. The Court of Civil Appeals affirmed. The court applied the 43 O.S. 109 definition of domestic violence, which includes coercive control by a parent involving physical, sexual, psychological, emotional, economic or financial abuse, and held that expansive definition effectuates legislative intent for custody and fee determinations under 43 O.S. 112.6.",
       "opinionUrl": "https://www.oscn.net/applications/oscn/deliverdocument.asp?citeid=550550",
-      "source": "official PDF"
+      "source": "official court site"
     },
     {
       "id": "gg-v-gs",
@@ -249,8 +265,8 @@
       "disposition": "reversed",
       "remanded": true,
       "summary": "G.G. appealed denial of renewal of a domestic violence restraining order originally issued for stalking. The Court of Appeal reversed and remanded for a new hearing under the Ritchie reasonable-apprehension framework. Family Code section 6320(c) defines abuse to include coercive control, including monitoring movements and communications. Physical abuse and non-physical abuse are not treated as different classes when a court decides whether to issue or renew an order. Certified for publication.",
-      "opinionUrl": "https://www.courts.ca.gov/opinions/documents/B331994.PDF",
-      "source": "official PDF"
+      "opinionUrl": "https://www.courtlistener.com/opinion/9507781/gg-v-g-s/",
+      "source": "CourtListener"
     },
     {
       "id": "graser-v-olsen",
@@ -281,8 +297,8 @@
       "disposition": "reversed",
       "remanded": true,
       "summary": "Hatley appealed denial of a domestic violence restraining order. The trial court treated a pattern of control and isolation, including limits on money, communication, and transportation, as outside the statutory definition of abuse. The Court of Appeal reversed and remanded for a new hearing. Attempts to control, regulate, and monitor a spouse's finances, economic resources, movements, and access to communications are abuse, including coercive control under Family Code section 6320(c). Certified for publication.",
-      "opinionUrl": "https://www.courts.ca.gov/opinions/documents/E080000.PDF",
-      "source": "official PDF"
+      "opinionUrl": "https://www.courtlistener.com/opinion/9420735/hatley-v-southard/",
+      "source": "CourtListener"
     },
     {
       "id": "marriage-of-lr-ka",
@@ -297,8 +313,8 @@
       "disposition": "reversed",
       "remanded": true,
       "summary": "Mother appealed a three-year domestic violence restraining order issued after an urgent-care custody clash that the responding officer described as a child custody dispute. The Court of Appeal reversed and directed denial of the order. Applying Family Code section 6320, including the coercive control definition and its legislative guardrails, the court held Mother's conduct showed poor co-parenting but did not destroy Father's mental and emotional calm within the meaning of the Domestic Violence Prevention Act. Certified for publication.",
-      "opinionUrl": "https://www.courts.ca.gov/opinions/documents/D077533.PDF",
-      "source": "official PDF"
+      "opinionUrl": "https://www.courtlistener.com/opinion/4903134/marriage-of-lr-and-ka/",
+      "source": "CourtListener"
     }
   ]
 }
