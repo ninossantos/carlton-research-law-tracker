@@ -43,10 +43,13 @@
       <div class="counts" id="counts" aria-label="Summary counts"></div>
 
       <div class="controls" id="controls">
-        <div>
+        <form role="search" id="search-form">
           <label class="search-label" for="search">Search</label>
-          <input class="search" id="search" type="search" placeholder="Jurisdiction, citation, bill, or phrase" autocomplete="off">
-        </div>
+          <div class="search-row">
+            <input class="search" id="search" type="search" placeholder="Jurisdiction, citation, bill, or phrase" autocomplete="off">
+            <button type="submit" id="search-go" class="search-go">Search</button>
+          </div>
+        </form>
         <div>
           <label for="filter-geo">Geography</label>
           <select id="filter-geo">
@@ -127,7 +130,7 @@
       <p>Carlton Research, LLC. <a href="https://carltonresearch.com/">carltonresearch.com</a>. Research, not legal advice.</p>
     </div>
   </footer>
-  <script src="/js/instruments-data.js?v=20260831c"></script>
-  <script src="/js/app.js?v=20260831c"></script>
+  <script src="/js/instruments-data.js?v=20260831d"></script>
+  <script src="/js/app.js?v=20260831d"></script>
 </body>
 </html>

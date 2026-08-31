@@ -275,8 +275,9 @@
   }
 
   function bind() {
-    $("search").addEventListener("input", function (e) {
-      state.query = e.target.value;
+    $("search-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      state.query = $("search").value;
       renderTable();
     });
     $("filter-geo").addEventListener("change", function (e) {
@@ -320,6 +321,7 @@
     .catch(function () {
       $("tracker-body").innerHTML =
         '<tr><td class="empty" colspan="8">The tracker could not load statute data.</td></tr>';
+      bind();
       postHeight();
     });
 

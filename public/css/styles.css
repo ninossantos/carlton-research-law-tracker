@@ -185,6 +185,44 @@ input[type="search"], select {
   color: var(--ink);
   border-radius: var(--radius);
 }
+#search-form {
+  margin: 0;
+}
+.search-row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+.search-row input[type="search"] {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: auto;
+}
+.search-go {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid var(--gold-deep);
+  background: var(--cream);
+  color: var(--ink);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.search-go:hover {
+  background: var(--gold);
+  border-color: var(--gold-deep);
+  color: var(--ink);
+}
+.search-go:active {
+  background: var(--gold-deep);
+  color: var(--cream);
+}
 .results-meta {
   grid-column: 1 / -1;
   margin: 0;
