@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coercive Control Named-Term Tracker | Carlton Research, LLC</title>
+  <meta name="description" content="Named-term tracker of coercive control statutes. Counted only where a statute uses the words coercive control or coercive controlling, or the UK phrase controlling or coercive behaviour. Last updated August 31, 2026.">
+  <meta name="author" content="Carlton Research, LLC">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23F7F3EB' width='32' height='32'/%3E%3Crect fill='%23C4A574' x='4' y='4' width='4' height='24'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="masthead">
+    <div class="masthead-bar" aria-hidden="true"></div>
+    <div class="masthead-inner">
+      <a class="wordmark" href="index.html">
+        <span class="wordmark-kicker">Coercive Control Named-Term Tracker</span>
+        <span class="wordmark-name">Carlton Research, LLC</span>
+      </a>
+    </div>
+  </header>
+  <main id="content">
+    <div class="wrap">
+      <p class="page-kicker">United States and verified jurisdictions · primary text</p>
+      <h1>Coercive Control Named-Term Tracker</h1>
+      <p class="lede">Counted only where a statute uses the words coercive control or coercive controlling, or the UK statutory phrase controlling or coercive behaviour. Secondary roundups, including USA Today April 24, 2026, are not the source.</p>
+      <span class="updated" id="updated-date">Last updated August 31, 2026</span>
+
+      <section class="method" aria-labelledby="method-h">
+        <h2 id="method-h" class="page-kicker">Method</h2>
+        <div id="method-copy"></div>
+        <p><a class="inquire" href="https://carltonresearch.com/">Inquire about coercive control expert witness services</a></p>
+      </section>
+
+      <noscript><p>JavaScript builds the searchable table from data/instruments.json. Open the JSON file directly if scripts are disabled.</p></noscript>
+      <div class="counts" id="counts" aria-label="Summary counts"></div>
+
+      <div class="controls" id="controls">
+        <div>
+          <label class="search-label" for="search">Search</label>
+          <input class="search" id="search" type="search" placeholder="Jurisdiction, citation, bill, or phrase" autocomplete="off">
+        </div>
+        <div>
+          <label for="filter-geo">Geography</label>
+          <select id="filter-geo">
+            <option value="all">All</option>
+            <option value="us-state">US state</option>
+            <option value="country">Country</option>
+          </select>
+        </div>
+        <div>
+          <label for="filter-status">Status</label>
+          <select id="filter-status">
+            <option value="all">All</option>
+            <option value="in-force">In force</option>
+            <option value="pipeline">Pipeline</option>
+            <option value="not-scored">Not scored</option>
+          </select>
+        </div>
+        <div>
+          <label for="filter-domain">Domain</label>
+          <select id="filter-domain">
+            <option value="all">All</option>
+            <option value="criminal">Criminal</option>
+            <option value="civil-protective-order">Civil protective order</option>
+            <option value="custody">Custody</option>
+            <option value="definitional">Definitional</option>
+          </select>
+        </div>
+        <p class="results-meta" id="results-meta" aria-live="polite"></p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="tracker">
+          <caption>Named-term coercive control instruments, pipeline bills, and not-scored corrections</caption>
+          <thead>
+            <tr>
+              <th scope="col" data-sort="jurisdiction">Jurisdiction</th>
+              <th scope="col" data-sort="instrument">Instrument</th>
+              <th scope="col" data-sort="status">Status</th>
+              <th scope="col" data-sort="domain">Domain</th>
+              <th scope="col" data-sort="accomplishes">What it accomplishes</th>
+              <th scope="col" data-sort="citation">Citation</th>
+              <th scope="col" data-sort="dateSort">Date</th>
+              <th scope="col">Source</th>
+            </tr>
+          </thead>
+          <tbody id="tracker-body">
+            <tr><td class="empty" colspan="8">Loading instrument rows.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <section class="panel" aria-labelledby="live-h">
+        <h2 id="live-h">Live bill mentions</h2>
+        <p>Recent state-legislature hits on the phrase coercive control. Mention-only bills are not scored as coercive control laws. Named-term counts above do not include this panel.</p>
+        <div class="table-wrap">
+          <table class="tracker">
+            <caption>Live results via /api/bills</caption>
+            <thead>
+              <tr>
+                <th scope="col">Jurisdiction</th>
+                <th scope="col">Bill</th>
+                <th scope="col">Title</th>
+                <th scope="col">Latest action</th>
+                <th scope="col">What this bill would accomplish</th>
+              </tr>
+            </thead>
+            <tbody id="bills-body">
+              <tr><td class="empty" colspan="5">Loading live bill mentions.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="corrections" aria-labelledby="corrections-h">
+        <h2 id="corrections-h">Corrections to the April 24, 2026 roundup</h2>
+        <p id="usa-today-copy"></p>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="inner">
+      <p>Carlton Research, LLC. <a href="https://carltonresearch.com/">carltonresearch.com</a>. Research, not legal advice.</p>
+    </div>
+  </footer>
+  <script src="js/app.js"></script>
+</body>
+</html>

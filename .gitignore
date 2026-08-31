@@ -1,0 +1,10 @@
+.env
+node_modules/
+.dev.vars
+.wrangler/
+.DS_Store
+GROK_PROMPT.md
+GROK_WRITE.md
+CONTINUE_PROMPT.md
+WRITE_NOW.md
+SEED.md
