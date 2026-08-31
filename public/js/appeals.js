@@ -137,7 +137,7 @@
     renderCards();
   });
 
-  fetch("data/appeals.json")
+  fetch("/data/appeals.json")
     .then(function (res) {
       if (!res.ok) throw new Error("fetch");
       return res.json();
@@ -152,7 +152,7 @@
     })
     .catch(function () {
       $("appeal-grid").innerHTML =
-        '<p class="empty-state">The tracker could not load appeals data. Open this folder through the local server at port 8765.</p>';
+        '<p class="empty-state">The tracker could not load appeals data.</p>';
       postHeight();
     });
 

@@ -251,7 +251,7 @@
   }
 
   function loadInstruments() {
-    return fetch("data/instruments.json").then(function (res) {
+    return fetch("/data/instruments.json").then(function (res) {
       if (!res.ok) throw new Error("fetch");
       return res.json();
     });
@@ -316,7 +316,7 @@
     })
     .catch(function () {
       $("tracker-body").innerHTML =
-        '<tr><td class="empty" colspan="8">The tracker could not load instrument data. Open this folder through the local server at port 8765.</td></tr>';
+        '<tr><td class="empty" colspan="8">The tracker could not load statute data.</td></tr>';
       postHeight();
     });
 
