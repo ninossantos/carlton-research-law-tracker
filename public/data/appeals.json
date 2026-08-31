@@ -93,22 +93,6 @@
       "source": "official PDF"
     },
     {
-      "id": "nan-n-v-rex-r",
-      "state": "Massachusetts",
-      "stateAbbr": "MA",
-      "court": "Massachusetts Appeals Court",
-      "title": "Nan N. v. Rex R.",
-      "docket": "AC 25-P-524",
-      "citation": "",
-      "date": "March 20, 2026",
-      "dateSort": "2026-03-20",
-      "disposition": "affirmed-in-part",
-      "remanded": true,
-      "summary": "Rex R. appealed a G.L. c. 209A abuse-prevention order, arguing insufficient evidence and that the judge applied the 2024 coercive control definition to conduct before September 18, 2024. The Appeals Court held the evidence supported abuse by placing Nan N. in fear of imminent serious physical harm and did not decide the coercive control timing argument. The court otherwise affirmed the order and remanded only so the Probate and Family Court could hold a timely extension hearing, because the judge had extended the order beyond one year too soon.",
-      "opinionUrl": "https://www.courtlistener.com/opinion/10811603/nan-n-v-rex-r/",
-      "source": "CourtListener"
-    },
-    {
       "id": "marriage-of-hoch",
       "state": "California",
       "stateAbbr": "CA",
@@ -186,22 +170,6 @@
       "remanded": false,
       "summary": "The defendant appealed a protective order and the denial of a motion to dismiss. The Appellate Court affirmed. The plaintiff's testimony, with that of the guardian ad litem, established a prima facie case of domestic violence under section 46b-1(b), which includes coercive control. The defendant relied on a superseded revision of section 46b-15 and left stalking and coercive control unchallenged.",
       "opinionUrl": "https://www.jud.ct.gov/external/supapp/Cases/AROap/AP235/AP235.328.pdf",
-      "source": "official PDF"
-    },
-    {
-      "id": "chin-v-chin",
-      "state": "Hawaii",
-      "stateAbbr": "HI",
-      "court": "Hawaii Intermediate Court of Appeals",
-      "title": "Chin v. Chin",
-      "docket": "CAAP-23-0000489",
-      "citation": "",
-      "date": "June 17, 2025",
-      "dateSort": "2025-06-17",
-      "disposition": "reversed",
-      "remanded": false,
-      "summary": "Richard Chin appealed an HRS chapter 586 order for protection. The family court struggled with coercive control, noting mutual acrimony in text messages, and instead rested the order on a single text treated as psychological abuse. The Intermediate Court of Appeals reversed. A single text is not a course of conduct under HRS 586-1. Summary disposition, not for publication.",
-      "opinionUrl": "https://www.courts.state.hi.us/wp-content/uploads/2025/06/CAAP-23-0000489sdo.pdf",
       "source": "official PDF"
     },
     {
