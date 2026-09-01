@@ -70,27 +70,58 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .masthead-inner {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 0.85rem var(--gutter) 0.4rem;
+  padding: 0.75rem var(--gutter) 0.4rem;
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 0.75rem 1.5rem;
 }
+/* Primary mark lockup: Seed of Life + Carlton Research wordmark (match WP) */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  max-width: 100%;
+  color: inherit;
+}
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  max-width: 40px;
+  max-height: 40px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.15;
+}
 .wordmark { text-decoration: none; }
+.wordmark-name {
+  display: block;
+  margin: 0;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 700;
+  color: #1e2d40;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+}
 .wordmark-kicker {
   display: block;
+  margin-top: 0.12rem;
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--burgundy);
 }
-.wordmark-name {
-  display: block;
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--ink);
+@media (max-width: 767px) {
+  .brand-mark { width: 32px; height: 32px; max-width: 32px; max-height: 32px; }
+  .wordmark-name { font-size: 0.95rem; }
 }
 
 main { flex: 1; }
