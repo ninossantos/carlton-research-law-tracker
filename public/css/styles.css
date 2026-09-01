@@ -84,13 +84,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--gold-deep);
+  color: var(--burgundy);
 }
 .wordmark-name {
   display: block;
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--burgundy);
+  color: var(--ink);
 }
 
 main { flex: 1; }
@@ -388,8 +388,8 @@ site-footer, .site-footer {
   color: var(--gold-deep);
 }
 .wp-nav a[aria-current="page"] {
-  color: var(--gold-deep);
-  border-bottom-color: var(--gold);
+  color: var(--burgundy);
+  border-bottom-color: var(--burgundy);
 }
 
 .appeal-controls {
