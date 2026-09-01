@@ -141,9 +141,9 @@ h1 {
 }
 .appeals-jump {
   display: inline-block;
-  background: var(--burgundy);
-  color: var(--cream);
-  border: 2px solid #4e1922;
+  background: #dbb28b;
+  color: #090a0c;
+  border: 2px solid #c4a574;
   padding: 0.45rem 1.5rem;
   font-size: 1.12rem;
   font-weight: 700;
@@ -154,9 +154,9 @@ h1 {
 }
 .appeals-jump:hover,
 .appeals-jump:focus-visible {
-  background: #5a1d27;
-  color: var(--cream);
-  border-color: #3f151c;
+  background: #d7a975;
+  color: #090a0c;
+  border-color: #c4a574;
 }
 
 .counts {
