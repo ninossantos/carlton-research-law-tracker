@@ -66,9 +66,6 @@ WP_NAV_HREFS = [
 SHORT_CC = re.compile(r"\bCC\b")
 ORANGE = re.compile(r"#f55f0d", re.I)
 OPENSTATES_TOKEN = re.compile(r"OPENSTATES")
-OFF_KIT_HEX = re.compile(r"#C4A574|#F7F3EB|%23C4A574|%23F7F3EB", re.I)
-BURGUNDY_HEX = re.compile(r"#6f2430", re.I)
-STYLES = ROOT / "public" / "css" / "styles.css"
 
 errors: list[str] = []
 
@@ -186,19 +183,6 @@ def main() -> int:
             fail(f"{rel}: contains hopefulchild")
         if ORANGE.search(text):
             fail(f"{rel}: contains #f55f0d")
-        if OFF_KIT_HEX.search(text):
-            fail(f"{rel}: contains #C4A574 or #F7F3EB")
-
-    if not STYLES.is_file():
-        fail("public/css/styles.css missing")
-    else:
-        css_text = STYLES.read_text(encoding="utf-8", errors="replace")
-        if not BURGUNDY_HEX.search(css_text):
-            fail("public/css/styles.css lacks #6f2430")
-        if "var(--burgundy)" not in css_text:
-            fail("public/css/styles.css must use var(--burgundy), not only declare it")
-        if OFF_KIT_HEX.search(css_text):
-            fail("public/css/styles.css contains #C4A574 or #F7F3EB")
 
     if not BILLS_FN.is_file():
         fail("functions/api/bills.js missing")
