@@ -90,7 +90,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   display: block;
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--ink);
+  color: var(--burgundy);
 }
 
 main { flex: 1; }
@@ -113,7 +113,7 @@ h1 {
   line-height: 1.2;
   margin: 0 0 0.6rem;
   font-weight: 700;
-  color: var(--burgundy);
+  color: var(--ink);
 }
 .lede { margin: 0 0 0.6rem; color: var(--ink-soft); max-width: 48rem; }
 .updated {
