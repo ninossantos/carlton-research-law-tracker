@@ -58,6 +58,7 @@ DONATE = re.compile(r"donate", re.I)
 HOPEFUL = re.compile(r"hopeful[\s\-]*child", re.I)
 WP_NAV_HREFS = [
     "https://carltonresearch.com/",
+    "https://instruments.carltonresearch.com/",
     "https://carltonresearch.com/services/",
     "https://carltonresearch.com/about/",
     "https://carltonresearch.com/contact/",
@@ -203,6 +204,12 @@ def main() -> int:
                     fail(f"public/index.html missing {needle!r}")
         if "https://carltonresearch.com/" not in html:
             fail("public/index.html missing inquire link to https://carltonresearch.com/")
+
+    css = (ROOT / "public" / "css" / "styles.css").read_text(encoding="utf-8")
+    if "#6f2430" not in css:
+        fail("public/css/styles.css missing #6f2430")
+    if not (ROOT / "public" / "favicon.png").is_file():
+        fail("public/favicon.png missing")
 
     html_pages = [INDEX, ROOT / "public" / "appeals.html"]
     for page in html_pages:
