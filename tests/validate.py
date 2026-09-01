@@ -218,6 +218,11 @@ def main() -> int:
             fail(f"{rel} missing")
             continue
         page_html = page.read_text(encoding="utf-8")
+        nav_m = re.search(r'<nav class="wp-nav"[^>]*>.*?</nav>', page_html, re.S | re.I)
+        if not nav_m:
+            fail(f"{rel} missing wp-nav")
+        elif "instruments.carltonresearch.com" not in nav_m.group(0):
+            fail(f"{rel} missing instruments.carltonresearch.com in wp-nav")
         for href in WP_NAV_HREFS:
             if href not in page_html:
                 fail(f"{rel} missing WordPress-site nav href {href}")

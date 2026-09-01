@@ -134,8 +134,7 @@ h1 {
 .method p { margin: 0 0 0.55rem; }
 .method p:last-child { margin-bottom: 0; }
 .inquire { font-weight: 700; }
-.inquire:hover,
-.inquire:focus-visible { color: var(--burgundy); }
+.inquire:hover { color: #6f2430; }
 
 .appeals-jump-wrap {
   margin: 0 0 1.5rem;
@@ -144,7 +143,7 @@ h1 {
   display: inline-block;
   background: var(--burgundy);
   color: var(--cream);
-  border: 2px solid var(--burgundy);
+  border: 2px solid #4e1922;
   padding: 0.45rem 1.5rem;
   font-size: 1.12rem;
   font-weight: 700;
@@ -155,9 +154,9 @@ h1 {
 }
 .appeals-jump:hover,
 .appeals-jump:focus-visible {
-  background: #551c26;
+  background: #5a1d27;
   color: var(--cream);
-  border-color: #551c26;
+  border-color: #3f151c;
 }
 
 .counts {
