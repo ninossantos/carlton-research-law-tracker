@@ -1,10 +1,24 @@
-# Coercive Control Named-Term Tracker
+# Coercive Control Law Tracker
 
 Carlton Research, LLC publishes this tracker. The count includes a statute only when the official text uses the words coercive control or coercive controlling, or the UK statutory phrase controlling or coercive behaviour. Nearby words such as coercion, controlling behavior, or emotional abuse do not qualify. Official statute text is the source.
 
 A statute that names coercive control does not finish the work. The hard part is showing the pattern in a longitudinal record. Conflict, including hostility, is not that pattern.
 
 Research, not legal advice. Carlton Research, LLC does not represent parties and does not make parenting-time recommendations.
+
+Live URLs:
+
+- Statutes: https://tracker.carltonresearch.com/
+- Appeals: https://tracker.carltonresearch.com/appeals
+
+Do not invent a second tracker URL.
+
+## Auto update
+
+- **Statutes / bills:** `/api/bills` reads Open States on the page load. New legislative mentions appear without a manual edit. Mention-only bills are not scored as coercive control laws. Scored in-force rows still come from official statute text in `data/instruments.json`.
+- **Appeals:** `/api/appeals` reads CourtListener on the page load and caches the result for six hours. A Monday GitHub Action also writes `data/appeals.json` so the static file stays current if CourtListener is down. No manual list management.
+
+Optional Cloudflare and GitHub secret: `COURTLISTENER_TOKEN`. Open States already uses `OPENSTATES_API_KEY`.
 
 ## Run locally
 
@@ -14,7 +28,7 @@ python3 scripts/dev_server.py
 
 Then open http://127.0.0.1:8765/
 
-The local server serves `public/` and proxies `GET /api/bills` using the `OPENSTATES_API_KEY` value from `.env` on the server side. The browser never receives the key.
+The local server serves `public/` and proxies `GET /api/bills` using the `OPENSTATES_API_KEY` value from `.env` on the server side. The browser never receives the key. Local `/api/appeals` serves the saved JSON.
 
 Validate the JSON lock:
 
@@ -22,8 +36,11 @@ Validate the JSON lock:
 python3 tests/validate.py
 ```
 
+Refresh the appeals backup from CourtListener:
 
-Appeals view: open http://127.0.0.1:8765/appeals.html . Expected live path: https://carlton-research-law-tracker.pages.dev/appeals.html . CourtListener REST search located candidate opinions. Holdings come from the opinions themselves (official court PDFs preferred). A published opinion that names coercive control does not finish the work. The hard part is showing the pattern in a longitudinal record.
+```bash
+python3 scripts/refresh_appeals.py
+```
 
 Validate the appeals JSON:
 
@@ -31,30 +48,10 @@ Validate the appeals JSON:
 python3 tests/validate_appeals.py
 ```
 
-
 ## Cloudflare Pages
 
-Create a new Pages project named `carlton-research-law-tracker`. Set the output directory to `public`. Add `OPENSTATES_API_KEY` as a Pages environment variable. Do not name the project `hopeful-child-foundation`.
+Pages project: `carlton-research-law-tracker`. Output directory: `public`. Environment variables: `OPENSTATES_API_KEY`, optional `COURTLISTENER_TOKEN`.
 
-`wrangler.toml` already sets `pages_build_output_dir = "public"` and `compatibility_date = "2026-08-31"`.
+## Brand
 
-## WordPress (page 2816)
-
-Replace the content of WordPress page 2816 with a Custom HTML iframe pointing at the Pages URL. Do not add a second menu item. The live menu goes live only after Carisa confirms.
-
-Placeholder iframe (swap the `src` after Pages is live):
-
-```html
-<iframe
-  title="Coercive Control Named-Term Tracker"
-  src="https://carlton-research-law-tracker.pages.dev/"
-  style="width:100%;min-height:1400px;border:0;"
-  loading="lazy"
-></iframe>
-```
-
-## Method notes
-
-Live Open States hits are mention search results. Mention-only bills are not scored as coercive control laws. Seed rows in `data/instruments.json` remain the named-term record.
-
-Brand: Carlton Research, LLC. Public URL: https://carltonresearch.com/
+Carlton Research, LLC. Public URL: https://carltonresearch.com/

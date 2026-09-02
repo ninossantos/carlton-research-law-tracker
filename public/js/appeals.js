@@ -70,36 +70,40 @@
   }
 
   function renderUpdated(payload) {
-    if (payload.meta && payload.meta.lastUpdated) {
-      $("updated-date").textContent = "Last updated " + payload.meta.lastUpdated;
+    var stamp = (payload && payload.lastUpdated) || (payload && payload.meta && payload.meta.lastUpdated);
+    if (stamp) {
+      $("updated-date").textContent = "Last updated " + stamp;
     }
   }
 
   function renderCounts() {
     var byState = {};
     state.cases.forEach(function (c) {
-      byState[c.state] = (byState[c.state] || 0) + 1;
+      if (c.stateAbbr && c.stateAbbr !== "US") byState[c.stateAbbr] = true;
     });
     var nStates = Object.keys(byState).length;
     $("counts").innerHTML =
       '<div class="count-card"><span class="num">' + state.cases.length +
-      '</span><span class="lbl">Verified appellate opinions</span></div>' +
+      '</span><span class="lbl">Appellate opinions</span></div>' +
       '<div class="count-card"><span class="num">' + nStates +
-      '</span><span class="lbl">States with at least one opinion</span></div>' +
-      '<div class="count-card"><span class="num">' + (51 - nStates) +
+      '</span><span class="lbl">Jurisdictions with at least one opinion</span></div>' +
+      '<div class="count-card"><span class="num">' + Math.max(0, 51 - nStates) +
       '</span><span class="lbl">States or D.C. with none in this tracker yet</span></div>';
   }
 
   function cardHtml(c) {
     var disp = DISP_LABELS[c.disposition] || c.disposition || "";
-    var remand = c.remanded ? '<span class="badge">Remanded</span>' : "";
+    var badges = "";
+    if (disp) badges += '<span class="badge">' + escapeHtml(disp) + "</span> ";
+    if (c.remanded) badges += '<span class="badge">Remanded</span> ';
+    if (c.status) badges += '<span class="badge">' + escapeHtml(c.status) + "</span>";
     var cite = c.citation ? " · " + escapeHtml(c.citation) : "";
     return (
       '<article class="appeal-card">' +
       "<h2>" + escapeHtml(c.title) + "</h2>" +
       '<p class="appeal-meta">' + escapeHtml(c.docket) + " · " +
       escapeHtml(c.court) + " · " + escapeHtml(c.date) + cite + "</p>" +
-      '<p><span class="badge">' + escapeHtml(disp) + "</span> " + remand + "</p>" +
+      (badges ? "<p>" + badges + "</p>" : "") +
       "<p>" + escapeHtml(c.summary) + "</p>" +
       '<p class="appeal-links"><a href="' + escapeHtml(c.opinionUrl) +
       '" rel="noopener">Read the full opinion</a></p>' +
@@ -120,7 +124,7 @@
       }
       grid.innerHTML =
         '<p class="empty-state">No published appellate opinion naming coercive control is in this tracker yet.</p>';
-      meta.textContent = label + ": 0 opinions in this curated set.";
+      meta.textContent = label + ": 0 opinions in this tracker yet.";
       postHeight();
       return;
     }
@@ -131,30 +135,48 @@
     postHeight();
   }
 
+  function applyPayload(payload) {
+    state.cases = payload.cases || [];
+    state.meta = payload.meta || {};
+    renderUpdated(payload.meta || payload);
+    renderCounts();
+    renderCards();
+    postHeight();
+  }
+
+  function loadAppeals() {
+    return fetch("/api/appeals")
+      .then(function (res) {
+        if (!res.ok) throw new Error("live");
+        return res.json();
+      })
+      .then(function (payload) {
+        if (!payload || !Array.isArray(payload.cases) || !payload.cases.length) {
+          throw new Error("empty");
+        }
+        applyPayload(payload);
+      })
+      .catch(function () {
+        return fetch("/data/appeals.json")
+          .then(function (res) {
+            if (!res.ok) throw new Error("fetch");
+            return res.json();
+          })
+          .then(applyPayload);
+      });
+  }
+
   fillSelect();
   $("filter-state").addEventListener("change", function (e) {
     state.filter = e.target.value;
     renderCards();
   });
 
-  fetch("/data/appeals.json")
-    .then(function (res) {
-      if (!res.ok) throw new Error("fetch");
-      return res.json();
-    })
-    .then(function (payload) {
-      state.cases = payload.cases || [];
-      state.meta = payload.meta || {};
-      renderUpdated(payload);
-      renderCounts();
-      renderCards();
-      postHeight();
-    })
-    .catch(function () {
-      $("appeal-grid").innerHTML =
-        '<p class="empty-state">The tracker could not load appeals data.</p>';
-      postHeight();
-    });
+  loadAppeals().catch(function () {
+    $("appeal-grid").innerHTML =
+      '<p class="empty-state">The tracker could not load appeals data.</p>';
+    postHeight();
+  });
 
   window.addEventListener("load", postHeight);
   if (window.ResizeObserver) {

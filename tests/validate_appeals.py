@@ -143,10 +143,10 @@ def main() -> int:
         html = APPEALS_HTML.read_text(encoding="utf-8")
         for needle in (
             "Carlton Research",
-            "August 31, 2026",
             "filter-state",
             "No published appellate opinion naming coercive control is in this tracker yet.",
             "Inquire about coercive control",
+            "The list updates automatically",
         ):
             if needle not in html:
                 fail(f"public/appeals.html missing {needle!r}")
@@ -159,8 +159,8 @@ def main() -> int:
             fail("appeals.js must list all 50 states and D.C.")
         if "cc-tracker-height" not in js:
             fail("appeals.js must postMessage height")
-        if 'fetch("/data/appeals.json")' not in js:
-            fail("appeals.js must fetch /data/appeals.json from the site root")
+        if "/api/appeals" not in js:
+            fail("appeals.js must fetch /api/appeals")
         if "8765" in js:
             fail("appeals.js must not mention the local dev port")
 

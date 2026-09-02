@@ -185,7 +185,8 @@
 
   function renderUpdated(payload) {
     if (payload.lastUpdated) {
-      $("updated-date").textContent = "Last updated " + payload.lastUpdated;
+      $("updated-date").textContent =
+        "Statute scoring last reviewed " + payload.lastUpdated + ". Live bill mentions update automatically.";
     }
   }
 
@@ -269,7 +270,7 @@
       .then(renderBills)
       .catch(function () {
         $("bills-body").innerHTML =
-          '<tr><td class="empty" colspan="5">Open States results did not load. Seed data in the table above remains the record.</td></tr>';
+          '<tr><td class="empty" colspan="5">Open States results did not load. The statute table above remains the scored record.</td></tr>';
         postHeight();
       });
   }

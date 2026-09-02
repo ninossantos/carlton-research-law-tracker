@@ -57,6 +57,9 @@ class Handler(SimpleHTTPRequestHandler):
         if parsed.path == "/api/bills":
             self.proxy_bills(parsed)
             return
+        if parsed.path == "/api/appeals":
+            self.proxy_appeals()
+            return
         super().do_GET()
 
     def proxy_bills(self, parsed):
@@ -85,6 +88,17 @@ class Handler(SimpleHTTPRequestHandler):
             self._json({"error": "Open States results did not load."}, 502)
             return
         self.send_response(status)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.end_headers()
+        self.wfile.write(body)
+
+    def proxy_appeals(self):
+        path = PUBLIC / "data" / "appeals.json"
+        if not path.is_file():
+            self._json({"error": "Appeals data is missing."}, 500)
+            return
+        body = path.read_bytes()
+        self.send_response(200)
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.end_headers()
         self.wfile.write(body)
