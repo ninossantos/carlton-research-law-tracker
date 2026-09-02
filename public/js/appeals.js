@@ -105,6 +105,8 @@
     return order.map(function (key) { return best[key]; });
   }
 
+  var state = { cases: [], meta: {}, filter: "all" };
+
   function $(id) { return document.getElementById(id); }
 
   function escapeHtml(str) {

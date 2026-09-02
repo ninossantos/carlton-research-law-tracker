@@ -314,7 +314,7 @@ function jsonResponse(body, status, extraHeaders) {
 export async function onRequest(context) {
   const token = (context.env && context.env.COURTLISTENER_TOKEN) || "";
   const cache = caches.default;
-  const cacheKey = new Request("https://tracker.carltonresearch.com/__cache/appeals-v2");
+  const cacheKey = new Request("https://tracker.carltonresearch.com/__cache/appeals-v3");
   const hit = await cache.match(cacheKey);
   if (hit) return hit;
 
@@ -382,7 +382,14 @@ export async function onRequest(context) {
     return fallback;
   }
 
-  const cases = dedupe(collected.concat(seedCases));
+  const cases = dedupe(collected.concat(seedCases)).filter(function (row) {
+    const s = String(row.summary || "");
+    if (!s) return false;
+    if (s.indexOf("The court names coercive control") === 0) return false;
+    if (s.indexOf(STUB_PREFIX) === 0) return false;
+    const low = s.toLowerCase();
+    return low.indexOf("coercive control") !== -1 || low.indexOf("controlling or coercive") !== -1;
+  });
 
   const payload = {
     meta: {
