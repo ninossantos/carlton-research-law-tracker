@@ -12,6 +12,8 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+      - name: Install PDF reader
+        run: python3 -m pip install --user pypdf
       - name: Harvest CourtListener appeals
         env:
           COURTLISTENER_TOKEN: ${{ secrets.COURTLISTENER_TOKEN }}

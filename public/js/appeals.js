@@ -25,7 +25,85 @@
     "reversed-in-part": "Reversed in part"
   };
 
-  var state = { cases: [], meta: {}, filter: "all" };
+  function docketBase(docket) {
+    return String(docket || "")
+      .toUpperCase()
+      .replace(/\s+/g, "")
+      .replace(/-(I|II|III|IV|V)$/i, "")
+      .split("/")[0]
+      .replace(/REL$/i, "")
+      .replace(/(\d)[A-Z]$/i, "$1");
+  }
+
+  function titleKey(title) {
+    return String(title || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, " ")
+      .replace(/\b(v|vs|and)\b/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function caseKey(c) {
+    var base = docketBase(c.docket);
+    var abbr = c.stateAbbr || "";
+    if (base.length >= 4) return abbr + "|d|" + base;
+    return abbr + "|t|" + titleKey(c.title) + "|" + (c.dateSort || "");
+  }
+
+  function isPublished(c) {
+    var s = String(c.status || "").toLowerCase();
+    return s === "published" || s === "precedential";
+  }
+
+  function isStub(summary) {
+    var s = String(summary || "").trim();
+    if (!s) return true;
+    if (s.indexOf("Published opinion that uses the words coercive control") === 0) return true;
+    if (s.indexOf("The court names coercive control") === 0) return true;
+    var low = s.toLowerCase();
+    return low.indexOf("coercive control") === -1 && low.indexOf("controlling or coercive") === -1;
+  }
+
+  function rank(c) {
+    var n = 0;
+    if (isPublished(c)) n += 50;
+    if (!isStub(c.summary)) n += 40;
+    if (c.source === "official PDF") n += 15;
+    n += Math.min(20, String(c.docket || "").length);
+    n += Math.min(10, Math.floor(String(c.summary || "").length / 80));
+    return n;
+  }
+
+  function mergeRow(a, b) {
+    var win = rank(a) >= rank(b) ? a : b;
+    var lose = win === a ? b : a;
+    var out = {};
+    Object.keys(lose).forEach(function (k) { out[k] = lose[k]; });
+    Object.keys(win).forEach(function (k) { out[k] = win[k]; });
+    if (isStub(win.summary) && !isStub(lose.summary)) out.summary = lose.summary;
+    if (!isPublished(win) && isPublished(lose)) out.status = lose.status || out.status;
+    if (win.source !== "official PDF" && lose.source === "official PDF") {
+      out.opinionUrl = lose.opinionUrl || out.opinionUrl;
+      out.source = "official PDF";
+    }
+    return out;
+  }
+
+  function dedupeCases(rows) {
+    var best = {};
+    var order = [];
+    (rows || []).forEach(function (row) {
+      var key = caseKey(row);
+      if (!best[key]) {
+        best[key] = row;
+        order.push(key);
+      } else {
+        best[key] = mergeRow(best[key], row);
+      }
+    });
+    return order.map(function (key) { return best[key]; });
+  }
 
   function $(id) { return document.getElementById(id); }
 
@@ -136,7 +214,7 @@
   }
 
   function applyPayload(payload) {
-    state.cases = payload.cases || [];
+    state.cases = dedupeCases(payload.cases || []);
     state.meta = payload.meta || {};
     renderUpdated(payload.meta || payload);
     renderCounts();

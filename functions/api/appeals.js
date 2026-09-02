@@ -108,6 +108,107 @@ function slug(s) {
     .slice(0, 80);
 }
 
+const STUB_PREFIX = "Published opinion that uses the words coercive control";
+
+function docketBase(docket) {
+  return String(docket || "")
+    .toUpperCase()
+    .replace(/\s+/g, "")
+    .replace(/[–—]/g, "-")
+    .split("/")[0]
+    .replace(/REL$/i, "")
+    .replace(/-(I|II|III|IV|V)$/i, "")
+    .replace(/(\d)[A-Z]$/i, "$1");
+}
+
+function titleKey(title) {
+  return String(title || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/\b(v|vs|and)\b/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function caseKey(row) {
+  const base = docketBase(row.docket);
+  const abbr = row.stateAbbr || "";
+  if (base.length >= 4) return abbr + "|d|" + base;
+  return abbr + "|t|" + titleKey(row.title) + "|" + (row.dateSort || "");
+}
+
+function isPublished(row) {
+  const s = String(row.status || "").toLowerCase();
+  return s === "published" || s === "precedential";
+}
+
+function isStub(summary) {
+  const s = String(summary || "").trim();
+  if (!s) return true;
+  if (s.indexOf(STUB_PREFIX) === 0) return true;
+  if (s.indexOf("The court names coercive control") === 0) return true;
+  const low = s.toLowerCase();
+  return low.indexOf("coercive control") === -1 && low.indexOf("controlling or coercive") === -1;
+}
+
+function rank(row) {
+  let n = 0;
+  if (isPublished(row)) n += 50;
+  if (!isStub(row.summary)) n += 40;
+  if (row.source === "official PDF") n += 15;
+  n += Math.min(20, String(row.docket || "").length);
+  n += Math.min(10, Math.floor(String(row.summary || "").length / 80));
+  return n;
+}
+
+function mergeRow(a, b) {
+  const win = rank(a) >= rank(b) ? a : b;
+  const lose = win === a ? b : a;
+  const out = Object.assign({}, lose, win);
+  if (isStub(win.summary) && !isStub(lose.summary)) {
+    out.summary = lose.summary;
+    if (lose.disposition) out.disposition = lose.disposition;
+    if (lose.remanded) out.remanded = lose.remanded;
+  }
+  if (!isPublished(win) && isPublished(lose)) out.status = lose.status || out.status;
+  if (win.source !== "official PDF" && lose.source === "official PDF") {
+    out.opinionUrl = lose.opinionUrl || out.opinionUrl;
+    out.source = "official PDF";
+  }
+  if (!out.citation && lose.citation) out.citation = lose.citation;
+  return out;
+}
+
+function dedupe(rows) {
+  const best = {};
+  const order = [];
+  rows.forEach(function (row) {
+    const key = caseKey(row);
+    if (!best[key]) {
+      best[key] = row;
+      order.push(key);
+    } else {
+      best[key] = mergeRow(best[key], row);
+    }
+  });
+  return order.map(function (key) {
+    return best[key];
+  });
+}
+
+function stripHtml(s) {
+  return String(s || "")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\u2014|\u2013/g, ", ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function snippetHasPhrase(s) {
+  const low = String(s || "").toLowerCase();
+  return low.indexOf("coercive control") !== -1 || low.indexOf("controlling or coercive") !== -1;
+}
+
 function placeFor(hit) {
   const id = hit.court_id || "";
   if (FEDERAL_IDS[id] || id.indexOf("ca") === 0 && /^ca\d+$/.test(id)) {
@@ -130,14 +231,18 @@ function isUs(hit) {
   return placeFor(hit) !== null;
 }
 
-function mapHit(hit, seedByDocket, seedByTitle) {
+function mapHit(hit, seedByDocket, seedByBase, seedByTitle) {
   const place = placeFor(hit);
   if (!place) return null;
   const docket = hit.docketNumber || "";
   const title = hit.caseName || "Untitled opinion";
+  const compact = docket.replace(/\s+/g, "");
+  const base = docketBase(docket);
   const seed =
-    (docket && seedByDocket[docket.replace(/\s+/g, "")]) ||
+    (compact && seedByDocket[compact]) ||
+    (base.length >= 4 && seedByBase[base]) ||
     seedByTitle[title.toLowerCase()] ||
+    seedByTitle[titleKey(title)] ||
     null;
   const iso = hit.dateFiled || "";
   const cites = Array.isArray(hit.citation) ? hit.citation.join("; ") : hit.citation || hit.neutralCite || "";
@@ -145,12 +250,21 @@ function mapHit(hit, seedByDocket, seedByTitle) {
   const liveUrl = urlPath
     ? (urlPath.indexOf("http") === 0 ? urlPath : "https://www.courtlistener.com" + urlPath)
     : "";
-  const syllabus = (hit.syllabus || "").replace(/\s+/g, " ").trim();
-  const summary = seed
-    ? seed.summary
-    : syllabus
-      ? syllabus.slice(0, 900)
-      : "Published opinion that uses the words coercive control. Read the full opinion.";
+  const op0 = Array.isArray(hit.opinions) && hit.opinions[0] ? hit.opinions[0] : {};
+  const downloadUrl = op0.download_url || liveUrl;
+  const snippet = stripHtml((hit.snippet || "") + " " + (op0.snippet || ""));
+  const syllabus = stripHtml(hit.syllabus || "");
+  let summary;
+  if (seed && !isStub(seed.summary)) {
+    summary = seed.summary;
+  } else if (syllabus && snippetHasPhrase(syllabus)) {
+    summary = syllabus.slice(0, 900);
+  } else if (snippetHasPhrase(snippet)) {
+    summary = snippet.slice(0, 900);
+  } else {
+    summary =
+      "The court names coercive control in this opinion. Open the opinion to read the passage that uses the term.";
+  }
   return {
     id: seed ? seed.id : slug((hit.court_id || "op") + "-" + docket + "-" + iso),
     state: place.state,
@@ -164,7 +278,7 @@ function mapHit(hit, seedByDocket, seedByTitle) {
     disposition: seed ? seed.disposition : "",
     remanded: seed ? Boolean(seed.remanded) : false,
     summary: summary,
-    opinionUrl: seed && seed.opinionUrl && seed.source === "official PDF" ? seed.opinionUrl : liveUrl,
+    opinionUrl: seed && seed.opinionUrl && seed.source === "official PDF" ? seed.opinionUrl : downloadUrl,
     source: seed && seed.source === "official PDF" ? "official PDF" : "CourtListener",
     status: hit.status || "",
   };
@@ -200,7 +314,7 @@ function jsonResponse(body, status, extraHeaders) {
 export async function onRequest(context) {
   const token = (context.env && context.env.COURTLISTENER_TOKEN) || "";
   const cache = caches.default;
-  const cacheKey = new Request("https://tracker.carltonresearch.com/__cache/appeals-v1");
+  const cacheKey = new Request("https://tracker.carltonresearch.com/__cache/appeals-v2");
   const hit = await cache.match(cacheKey);
   if (hit) return hit;
 
@@ -216,10 +330,18 @@ export async function onRequest(context) {
     seedCases = [];
   }
   const seedByDocket = {};
+  const seedByBase = {};
   const seedByTitle = {};
   seedCases.forEach(function (row) {
-    if (row.docket) seedByDocket[String(row.docket).replace(/\s+/g, "")] = row;
-    if (row.title) seedByTitle[String(row.title).toLowerCase()] = row;
+    if (row.docket) {
+      seedByDocket[String(row.docket).replace(/\s+/g, "")] = row;
+      const base = docketBase(row.docket);
+      if (base.length >= 4) seedByBase[base] = row;
+    }
+    if (row.title) {
+      seedByTitle[String(row.title).toLowerCase()] = row;
+      seedByTitle[titleKey(row.title)] = row;
+    }
   });
 
   const collected = [];
@@ -236,7 +358,7 @@ export async function onRequest(context) {
     }
     result.body.results.forEach(function (row) {
       if (!isUs(row)) return;
-      const mapped = mapHit(row, seedByDocket, seedByTitle);
+      const mapped = mapHit(row, seedByDocket, seedByBase, seedByTitle);
       if (mapped) collected.push(mapped);
     });
     url = result.body.next || "";
@@ -260,27 +382,14 @@ export async function onRequest(context) {
     return fallback;
   }
 
-  const seen = {};
-  const cases = [];
-  collected.forEach(function (row) {
-    const key = (row.docket || row.title) + "|" + row.dateSort;
-    if (seen[key]) return;
-    seen[key] = true;
-    cases.push(row);
-  });
-  seedCases.forEach(function (row) {
-    const key = (row.docket || row.title) + "|" + (row.dateSort || "");
-    if (seen[key]) return;
-    seen[key] = true;
-    cases.push(row);
-  });
+  const cases = dedupe(collected.concat(seedCases));
 
   const payload = {
     meta: {
       title: "Coercive Control Appeal Tracker",
       lastUpdated: todayStamp(),
       sourceNote:
-        "CourtListener search of United States opinions that use the words coercive control. The list updates automatically. Research, not legal advice.",
+        "CourtListener search of United States opinions that use the words coercive control. One published card per case. The list updates automatically. Research, not legal advice.",
       live: true,
       count: cases.length,
     },
