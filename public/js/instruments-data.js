@@ -4,7 +4,6 @@ window.CC_INSTRUMENTS = {
     "A statute that names coercive control does not finish the work.",
     "The hard part is showing the pattern in a longitudinal record.",
     "Conflict, including hostility, is not that pattern.",
-    "Research, not legal advice.",
     "Carlton Research, LLC does not represent parties and does not make parenting-time recommendations."
   ],
   "instruments": [
