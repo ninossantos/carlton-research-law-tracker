@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Coercive Control Appeal Tracker",
-    "lastUpdated": "September 7, 2026",
+    "lastUpdated": "September 14, 2026",
     "sourceNote": "CourtListener search of United States opinions that use the words coercive control. The list keeps one published card per case. Research, not legal advice.",
     "method": [
       "A published opinion that names coercive control does not finish the work.",
@@ -11,9 +11,26 @@
       "CourtListener supplies the list. The list updates automatically."
     ],
     "live": true,
-    "count": 110
+    "count": 111
   },
   "cases": [
+    {
+      "id": "ohioctapp-2026-p-0009-2026-09-08",
+      "state": "Ohio",
+      "stateAbbr": "OH",
+      "court": "Ohio Court of Appeals",
+      "title": "Hertneky v. Hertneky",
+      "docket": "2026-P-0009",
+      "citation": "2026 Ohio 3511",
+      "date": "September 8, 2026",
+      "dateSort": "2026-09-08",
+      "disposition": "",
+      "remanded": false,
+      "summary": "More specifically, Wife contends the trial court erred by (1) misinterpreting the parties’ temporary custody agreement as evidence of “long -term” custody; (2) failing to properly evaluate police reports and evidence of domestic abuse and coercive control in its best interest analysis pursuant to R.C.",
+      "opinionUrl": "https://www.supremecourt.ohio.gov/rod/docs/pdf/11/2026/2026-Ohio-3511.pdf",
+      "source": "CourtListener",
+      "status": "Published"
+    },
     {
       "id": "calctapp-a172398-2026-09-04",
       "state": "California",
