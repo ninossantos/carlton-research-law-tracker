@@ -253,13 +253,28 @@ def load_seed():
     return payload.get("cases") or []
 
 
-def fetch_page(url: str, token: str) -> dict:
+def fetch_page(url: str, token: str, attempts: int = 4) -> dict:
     headers = {"Accept": "application/json", "User-Agent": UA}
     if token:
         headers["Authorization"] = "Token " + token
-    req = urllib.request.Request(url, headers=headers)
-    with urllib.request.urlopen(req, timeout=45) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+    last_err: Exception | None = None
+    for i in range(attempts):
+        req = urllib.request.Request(url, headers=headers)
+        try:
+            with urllib.request.urlopen(req, timeout=90) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except urllib.error.HTTPError as err:
+            last_err = err
+            if err.code not in {429, 500, 502, 503, 504} or i == attempts - 1:
+                raise
+        except (TimeoutError, urllib.error.URLError) as err:
+            last_err = err
+            if i == attempts - 1:
+                raise
+        wait = 2 ** i
+        print(f"CourtListener page fetch failed ({last_err}); retry {i + 1}/{attempts} in {wait}s")
+        time.sleep(wait)
+    raise last_err or RuntimeError("CourtListener page fetch failed")
 
 
 def strip_html(s: str) -> str:
@@ -481,7 +496,11 @@ def harvest(token: str) -> list[dict]:
     pages = 0
     while url and pages < 10:
         pages += 1
-        body = fetch_page(url, token)
+        try:
+            body = fetch_page(url, token)
+        except (TimeoutError, urllib.error.URLError) as err:
+            print(f"CourtListener harvest stopped after page {pages}: {err}")
+            break
         for hit in body.get("results") or []:
             if not place_for(hit):
                 continue
@@ -489,6 +508,8 @@ def harvest(token: str) -> list[dict]:
         url = body.get("next") or ""
         if url:
             time.sleep(1.0)
+    if not collected:
+        print("CourtListener returned no new pages; keeping the saved list.")
 
     combined = collected + seed
     rows = uniquify_ids(dedupe(combined))
@@ -502,7 +523,11 @@ def harvest(token: str) -> list[dict]:
 
 
 def main() -> int:
-    token = os.environ.get("COURTLISTENER_TOKEN", "")
+    token = os.environ.get("COURTLISTENER_TOKEN", "").strip()
+    if token:
+        print("CourtListener token present.")
+    else:
+        print("CourtListener token missing; unauthenticated search.")
     cases = harvest(token)
     payload = {
         "meta": {
