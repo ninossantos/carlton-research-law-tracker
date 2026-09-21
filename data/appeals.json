@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Coercive Control Appeal Tracker",
-    "lastUpdated": "September 14, 2026",
+    "lastUpdated": "September 21, 2026",
     "sourceNote": "CourtListener search of United States opinions that use the words coercive control. The list keeps one published card per case. Research, not legal advice.",
     "method": [
       "A published opinion that names coercive control does not finish the work.",
@@ -11,9 +11,26 @@
       "CourtListener supplies the list. The list updates automatically."
     ],
     "live": true,
-    "count": 111
+    "count": 112
   },
   "cases": [
+    {
+      "id": "txctapp2-02-26-00186-cv-2026-09-17",
+      "state": "Texas",
+      "stateAbbr": "TX",
+      "court": "Texas Court of Appeals, 2nd District (Fort Worth)",
+      "title": "In the Interest of M.T., H.T., R.T., K.T., and G.T., Children v. the State of Texas",
+      "docket": "02-26-00186-CV",
+      "citation": "",
+      "date": "September 17, 2026",
+      "dateSort": "2026-09-17",
+      "disposition": "",
+      "remanded": false,
+      "summary": "Mother also told the officer that Husband had choked her 9 until she uri nated on herself and lost consciousness and that her relationship with Husband involved “a pattern of abuse and coercive control.” Mother told the officer that Husband demeaned her, called her names, and controlled her access to money.",
+      "opinionUrl": "https://search.txcourts.gov/SearchMedia.aspx?MediaVersionID=5dc35444-95fc-4def-b617-b9dc5f21e7f0&coa=coa02&DT=Opinion&MediaID=5bd54a74-85a7-4cde-a2ed-a30ce35078d5",
+      "source": "CourtListener",
+      "status": "Published"
+    },
     {
       "id": "ohioctapp-2026-p-0009-2026-09-08",
       "state": "Ohio",
