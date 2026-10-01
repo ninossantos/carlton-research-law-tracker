@@ -1,5 +1,5 @@
 window.CC_INSTRUMENTS = {
-  "lastUpdated": "August 31, 2026",
+  "lastUpdated": "October 1, 2026",
   "method": [
     "A statute that names coercive control does not finish the work.",
     "The hard part is showing the pattern in a longitudinal record.",
@@ -45,14 +45,14 @@ window.CC_INSTRUMENTS = {
       "geographyType": "us-state",
       "jurisdiction": "California",
       "jurisdictionCode": "US-CA",
-      "instrument": "SB 1141 (2020); SB 374 (2021); SB 50 (2025)",
+      "instrument": "SB 1141 (2020); SB 374 (2021); SB 50 (2025); AB 2534 (2026)",
       "citation": "Family Code 6320",
       "status": "in-force",
       "domain": "civil-protective-order",
-      "accomplishes": "California writes coercive control into Family Code 6320 (SB 1141, 2020; SB 374, 2021; SB 50, 2025), so a domestic violence restraining order may rest on the named term.",
+      "accomplishes": "California writes coercive control into Family Code 6320 (SB 1141, 2020; SB 374, 2021; SB 50, 2025), so a domestic violence restraining order may rest on the coercive control statute. AB 2534, Chapter 950, Statutes of 2026, signed September 30, 2026, adds interfering with a court proceeding to the Family Code 6320 examples. That chapter takes effect January 1, 2027.",
       "date": "2020",
       "dateSort": "2020-01-01",
-      "sourceUrl": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=FAM&sectionNum=6320.",
+      "sourceUrl": "https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202520260AB2534",
       "namedTerm": true,
       "scored": true
     },
@@ -538,7 +538,7 @@ window.CC_INSTRUMENTS = {
       "sourceUrl": "https://www.parl.ca/legisinfo/en/bill/45-1/c-16",
       "namedTerm": true,
       "scored": true,
-      "notes": "Justice labels the item coercive control. Statute text uses coercive or controlling conduct. Not in force as of August 31, 2026."
+      "notes": "Justice labels the item coercive control. Statute text uses coercive or controlling conduct. Not in force as of October 1, 2026."
     },
     {
       "id": "int-scotland-s1",
@@ -621,6 +621,23 @@ window.CC_INSTRUMENTS = {
       "namedTerm": true,
       "scored": true,
       "notes": "AustLII s.2: the Act comes into operation on a day to be fixed by proclamation."
+    },
+    {
+      "id": "int-vic-2026",
+      "geographyType": "country",
+      "jurisdiction": "Victoria",
+      "jurisdictionCode": "AU-VIC",
+      "instrument": "Act No. 41 of 2026",
+      "citation": "Crimes Act 1958 s.34AR",
+      "status": "enacted-not-commenced",
+      "domain": "criminal",
+      "accomplishes": "Victoria enacted a standalone coercive control offense at Crimes Act 1958 s.34AR through the Justice Legislation Amendment (Family Violence, Coercive Control, Good Character, Risk Assessment and Other Matters) Act 2026 (Act No. 41 of 2026), which received Royal Assent on September 22, 2026. Part 6 commences on proclamation, or on March 1, 2028 if not proclaimed sooner, so the offense is not in force.",
+      "date": "September 22, 2026",
+      "dateSort": "2026-09-22",
+      "sourceUrl": "https://www.legislation.vic.gov.au/sites/default/files/2026-09/601313bs1.docx",
+      "namedTerm": true,
+      "scored": true,
+      "notes": "As-passed Act text heads section 34AR Coercive control. An adult current or former intimate partner commits the offense by a course of conduct intended to coerce or control the other person. Maximum penalty is 10 years. Part 6 has not commenced."
     }
   ]
 };

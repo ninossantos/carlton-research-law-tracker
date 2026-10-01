@@ -104,12 +104,12 @@ def main() -> int:
     if a != b:
         fail("data/instruments.json and public/data/instruments.json are not identical")
 
-    if a.get("lastUpdated") != "August 31, 2026":
-        fail("lastUpdated must be August 31, 2026")
+    if a.get("lastUpdated") != "October 1, 2026":
+        fail("lastUpdated must be October 1, 2026")
 
     method = a.get("method")
-    if not isinstance(method, list) or len(method) != 5:
-        fail("method must be an array of 5 sentences")
+    if not isinstance(method, list) or len(method) != 4:
+        fail("method must be an array of 4 sentences")
     else:
         for i, s in enumerate(method):
             scan_text(f"method[{i}]", s)
@@ -198,7 +198,7 @@ def main() -> int:
     if not INDEX.is_file():
         fail("public/index.html missing")
     else:
-        for needle in ("Carlton Research", "Coercive Control Law Tracker", "August 31, 2026", "Inquire about coercive control"):
+        for needle in ("Carlton Research", "Coercive Control Law Tracker", "October 1, 2026", "Inquire about coercive control"):
             if needle.lower() not in html.lower() and needle not in html:
                 if needle.casefold() not in html.casefold():
                     fail(f"public/index.html missing {needle!r}")
