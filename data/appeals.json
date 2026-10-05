@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Coercive Control Appeal Tracker",
-    "lastUpdated": "September 28, 2026",
+    "lastUpdated": "October 5, 2026",
     "sourceNote": "CourtListener search of United States opinions that use the words coercive control. The list keeps one published card per case. Research, not legal advice.",
     "method": [
       "A published opinion that names coercive control does not finish the work.",
@@ -11,9 +11,26 @@
       "CourtListener supplies the list. The list updates automatically."
     ],
     "live": true,
-    "count": 112
+    "count": 115
   },
   "cases": [
+    {
+      "id": "nyappdiv-2020-05178-2026-09-30",
+      "state": "New York",
+      "stateAbbr": "NY",
+      "court": "Appellate Division of the Supreme Court of the State of New York",
+      "title": "People v. Farquharson",
+      "docket": "2020-05178",
+      "citation": "2026 NY Slip Op 05553",
+      "date": "September 30, 2026",
+      "dateSort": "2026-09-30",
+      "disposition": "",
+      "remanded": false,
+      "summary": "Contrary to the defendant's contention, the Supreme Court providently exercised its discretion in admitting expert testimony on the subjects of domestic violence, coercive control, and trauma, and the defendant was not deprived of a fair trial on this basis ( see People v Carroll , 95 NY2d 375, 387; People v Farmer , 203 AD3d 743, 744; People v Whitson , 166 AD3d 663, 664).",
+      "opinionUrl": "http://www.nycourts.gov/reporter/current/3dseries/2026/2026_05553.shtml",
+      "source": "CourtListener",
+      "status": "Published"
+    },
     {
       "id": "txctapp2-02-26-00186-cv-2026-09-17",
       "state": "Texas",
@@ -199,6 +216,23 @@
       "summary": "G.G.S. appealed denial of a final restraining order after the trial court credited testimony of forcible sexual assault and strangulation. The Appellate Division reversed and remanded for entry of a final restraining order. Strangulation was treated as coercive control and domination that the Prevention of Domestic Violence Act is designed to forestall. N.J.S.A. 2C:25-29(a)(7) requires courts to consider any pattern of coercive control. Once the credited facts were found, the need for a final restraining order was treated as self-evident under Silver.",
       "opinionUrl": "https://www.njcourts.gov/system/files/court-opinions/2026/a3315-24.pdf",
       "source": "official PDF",
+      "status": "Published"
+    },
+    {
+      "id": "nysupctwster-2026-03-31",
+      "state": "New York",
+      "stateAbbr": "NY",
+      "court": "New York Supreme Court, Westchester County",
+      "title": "R.C.F. v. L.Y.F.",
+      "docket": "",
+      "citation": "88 Misc. 3d 1253(A); 2026 NY Slip Op 50532",
+      "date": "March 31, 2026",
+      "dateSort": "2026-03-31",
+      "disposition": "",
+      "remanded": false,
+      "summary": "Matrimonial actions may also include conduct that amounts to litigation abuse, a form of domestic violence where parties utilize the courts, including prolonging the underlying matrimonial action and following post-judgment litigation, to engage in domestic violence against their spouse. As one author noted: \" 'Litigation abuse' is defined as a batterer's use of the court system as a tool of coercive control over the victim. Batterers often pursue litigation abuse as a tactic for several reasons: it is one of the few remaining ways that they can control a victim after separation, it can drain the victim's financial resources, and family courts allow for parties to demand many hearing.",
+      "opinionUrl": "https://nycourts.gov/reporter/current/3dseries/2026/2026_50532.shtml",
+      "source": "CourtListener",
       "status": "Published"
     },
     {
@@ -640,6 +674,23 @@
       "remanded": false,
       "summary": "In its November 30, 2023 memorandum of decision, the court found that each of the parties had children from a prior relationship. The court found that the defendant engaged in domestic violence during the marriage, including physical abuse and coercive control. The court recounted an incident on June 23, 2020, in which the defendant punched the plaintiff’s daughter, then a teenager, in the face after she attempted to intercede in an argument between the parties.",
       "opinionUrl": "http://www.jud.ct.gov/external/supapp/Cases/AROap/AP232/AP232.219.pdf",
+      "source": "CourtListener",
+      "status": "Published"
+    },
+    {
+      "id": "nyfamcterie-docket-no-v-10482-16-21d-2025-05-15",
+      "state": "New York",
+      "stateAbbr": "NY",
+      "court": "New York Family Court, Erie County",
+      "title": "Matter of KLD v. SM",
+      "docket": "Docket No. V-10482-16/21D",
+      "citation": "2025 NY Slip Op 52193",
+      "date": "May 15, 2025",
+      "dateSort": "2025-05-15",
+      "disposition": "",
+      "remanded": false,
+      "summary": "specified that any new pattern of fighting through the children or coercive control should be considered a change in circumstances for either party to modify custody. ( See : pages 84-85 of Petitioner's 11 ) In April 2017 , the court ordered an update to this report to address what if any impact two (2) new developments might have on recommendations made in Petitioner's 11 .",
+      "opinionUrl": "https://nycourts.gov/reporter/current/3dseries/2025/2025_52193.shtml",
       "source": "CourtListener",
       "status": "Published"
     },
