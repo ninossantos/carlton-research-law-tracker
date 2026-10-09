@@ -22,8 +22,25 @@
     reversed: "Reversed",
     remanded: "Remanded",
     "affirmed-in-part": "Affirmed in part",
-    "reversed-in-part": "Reversed in part"
+    "reversed-in-part": "Reversed in part",
+    vacated: "Vacated",
+    dismissed: "Dismissed"
   };
+
+  var ABBR_OK = { US: true };
+  var NAME_TO_ABBR = { federal: "US" };
+  US_STATES.forEach(function (pair) {
+    ABBR_OK[pair[0]] = true;
+    NAME_TO_ABBR[String(pair[1]).toLowerCase().replace(/\s+/g, "")] = pair[0];
+  });
+
+  function normalizedStateCode(c) {
+    var raw = String(c && c.stateAbbr != null ? c.stateAbbr : "").trim().toUpperCase();
+    if (raw && ABBR_OK[raw]) return raw;
+    var name = String(c && c.state != null ? c.state : "").toLowerCase().replace(/\s+/g, "");
+    if (NAME_TO_ABBR[name]) return NAME_TO_ABBR[name];
+    return raw;
+  }
 
   function docketBase(docket) {
     return String(docket || "")
@@ -46,7 +63,7 @@
 
   function caseKey(c) {
     var base = docketBase(c.docket);
-    var abbr = c.stateAbbr || "";
+    var abbr = normalizedStateCode(c);
     if (base.length >= 4) return abbr + "|d|" + base;
     return abbr + "|t|" + titleKey(c.title) + "|" + (c.dateSort || "");
   }
@@ -87,7 +104,31 @@
       out.opinionUrl = lose.opinionUrl || out.opinionUrl;
       out.source = "official PDF";
     }
+    keepDisposition(out, win, lose);
     return out;
+  }
+
+  function keepDisposition(out, win, lose) {
+    var winDisp = String(win.disposition || "").trim();
+    var loseDisp = String(lose.disposition || "").trim();
+    var winSrc = String(win.dispositionSource || "").trim();
+    var loseSrc = String(lose.dispositionSource || "").trim();
+    if (loseDisp && loseSrc && !winSrc) {
+      out.disposition = lose.disposition;
+      out.remanded = Boolean(lose.remanded);
+      out.dispositionSource = lose.dispositionSource;
+      return;
+    }
+    if (!winDisp && loseDisp) {
+      out.disposition = lose.disposition;
+      out.remanded = Boolean(lose.remanded);
+      if (loseSrc) out.dispositionSource = lose.dispositionSource;
+      return;
+    }
+    if (winDisp && !winSrc && loseSrc && winDisp === loseDisp) {
+      out.dispositionSource = lose.dispositionSource;
+      if (!out.remanded && lose.remanded) out.remanded = true;
+    }
   }
 
   function dedupeCases(rows) {
@@ -140,7 +181,7 @@
   function selectedCases() {
     var rows = state.cases.slice();
     if (state.filter !== "all") {
-      rows = rows.filter(function (c) { return c.stateAbbr === state.filter; });
+      rows = rows.filter(function (c) { return normalizedStateCode(c) === state.filter; });
     }
     rows.sort(function (a, b) {
       if (a.dateSort === b.dateSort) return (a.title || "").localeCompare(b.title || "");
@@ -159,7 +200,8 @@
   function renderCounts() {
     var byState = {};
     state.cases.forEach(function (c) {
-      if (c.stateAbbr && c.stateAbbr !== "US") byState[c.stateAbbr] = true;
+      var code = normalizedStateCode(c);
+      if (code && code !== "US" && ABBR_OK[code]) byState[code] = true;
     });
     var nStates = Object.keys(byState).length;
     $("counts").innerHTML =
@@ -221,6 +263,8 @@
     renderUpdated(payload.meta || payload);
     renderCounts();
     renderCards();
+    var sel = $("filter-state");
+    if (sel) sel.disabled = false;
     postHeight();
   }
 
@@ -247,8 +291,11 @@
   }
 
   fillSelect();
-  $("filter-state").addEventListener("change", function (e) {
-    state.filter = e.target.value;
+  var stateSelect = $("filter-state");
+  stateSelect.disabled = true;
+  stateSelect.addEventListener("change", function (e) {
+    if (e.target.disabled) return;
+    state.filter = e.target.value || "all";
     renderCards();
   });
 

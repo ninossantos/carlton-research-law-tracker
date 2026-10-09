@@ -86,6 +86,35 @@ const NAME_TO_ABBR = Object.fromEntries(
   Object.entries(STATE_NAMES).map(([abbr, name]) => [name.toLowerCase(), abbr]),
 );
 
+const NAME_TO_ABBR_FOLDED = Object.fromEntries(
+  Object.entries(STATE_NAMES).map(([abbr, name]) => [name.toLowerCase().replace(/\s+/g, ""), abbr]),
+);
+NAME_TO_ABBR_FOLDED.federal = "US";
+
+function normalizedStateCode(row) {
+  const raw = String((row && row.stateAbbr) || "").trim().toUpperCase();
+  if (raw && (raw === "US" || STATE_NAMES[raw])) return raw;
+  const name = String((row && row.state) || "").toLowerCase().replace(/\s+/g, "");
+  if (NAME_TO_ABBR_FOLDED[name]) return NAME_TO_ABBR_FOLDED[name];
+  return raw;
+}
+
+function normalizeRow(row) {
+  if (!row || typeof row !== "object") return row;
+  const out = Object.assign({}, row);
+  const code = normalizedStateCode(out);
+  if (code === "US" || STATE_NAMES[code]) {
+    out.stateAbbr = code;
+    const folded = String(out.state || "").toLowerCase().replace(/\s+/g, "");
+    if (code === "US") {
+      if (!folded || folded === "federal") out.state = "Federal";
+    } else if (!folded || folded === STATE_NAMES[code].toLowerCase().replace(/\s+/g, "")) {
+      out.state = STATE_NAMES[code];
+    }
+  }
+  return out;
+}
+
 function formatDate(iso) {
   if (!iso || iso.length < 10) return iso || "";
   const y = iso.slice(0, 4);
@@ -132,7 +161,7 @@ function titleKey(title) {
 
 function caseKey(row) {
   const base = docketBase(row.docket);
-  const abbr = row.stateAbbr || "";
+  const abbr = normalizedStateCode(row);
   if (base.length >= 4) return abbr + "|d|" + base;
   return abbr + "|t|" + titleKey(row.title) + "|" + (row.dateSort || "");
 }
@@ -167,8 +196,6 @@ function mergeRow(a, b) {
   const out = Object.assign({}, lose, win);
   if (isStub(win.summary) && !isStub(lose.summary)) {
     out.summary = lose.summary;
-    if (lose.disposition) out.disposition = lose.disposition;
-    if (lose.remanded) out.remanded = lose.remanded;
   }
   if (!isPublished(win) && isPublished(lose)) out.status = lose.status || out.status;
   if (win.source !== "official PDF" && lose.source === "official PDF") {
@@ -176,7 +203,32 @@ function mergeRow(a, b) {
     out.source = "official PDF";
   }
   if (!out.citation && lose.citation) out.citation = lose.citation;
+  keepDisposition(out, win, lose);
   return out;
+}
+
+function keepDisposition(out, win, lose) {
+  const winDisp = String(win.disposition || "").trim();
+  const loseDisp = String(lose.disposition || "").trim();
+  const winSrc = String(win.dispositionSource || "").trim();
+  const loseSrc = String(lose.dispositionSource || "").trim();
+  // Static rows carry dispositionSource. Do not let a live row drop them.
+  if (loseDisp && loseSrc && !winSrc) {
+    out.disposition = lose.disposition;
+    out.remanded = Boolean(lose.remanded);
+    out.dispositionSource = lose.dispositionSource;
+    return;
+  }
+  if (!winDisp && loseDisp) {
+    out.disposition = lose.disposition;
+    out.remanded = Boolean(lose.remanded);
+    if (loseSrc) out.dispositionSource = lose.dispositionSource;
+    return;
+  }
+  if (winDisp && !winSrc && loseSrc && winDisp === loseDisp) {
+    out.dispositionSource = lose.dispositionSource;
+    if (!out.remanded && lose.remanded) out.remanded = true;
+  }
 }
 
 function dedupe(rows) {
@@ -265,7 +317,7 @@ function mapHit(hit, seedByDocket, seedByBase, seedByTitle) {
     summary =
       "The court names coercive control in this opinion. Open the opinion to read the passage that uses the term.";
   }
-  return {
+  return normalizeRow({
     id: seed ? seed.id : slug((hit.court_id || "op") + "-" + docket + "-" + iso),
     state: place.state,
     stateAbbr: place.stateAbbr,
@@ -275,13 +327,14 @@ function mapHit(hit, seedByDocket, seedByBase, seedByTitle) {
     citation: seed && seed.citation ? seed.citation : cites,
     date: formatDate(iso),
     dateSort: iso,
-    disposition: seed ? seed.disposition : "",
+    disposition: seed && seed.disposition ? seed.disposition : "",
     remanded: seed ? Boolean(seed.remanded) : false,
+    dispositionSource: seed && seed.dispositionSource ? seed.dispositionSource : "",
     summary: summary,
     opinionUrl: seed && seed.opinionUrl && seed.source === "official PDF" ? seed.opinionUrl : downloadUrl,
     source: seed && seed.source === "official PDF" ? "official PDF" : "CourtListener",
     status: hit.status || "",
-  };
+  });
 }
 
 async function fetchJson(url, token) {
@@ -324,7 +377,7 @@ export async function onRequest(context) {
     const seedRes = await fetch(origin + "/data/appeals.json");
     if (seedRes.ok) {
       const seedJson = await seedRes.json();
-      seedCases = Array.isArray(seedJson.cases) ? seedJson.cases : [];
+      seedCases = Array.isArray(seedJson.cases) ? seedJson.cases.map(normalizeRow) : [];
     }
   } catch (err) {
     seedCases = [];
@@ -375,14 +428,14 @@ export async function onRequest(context) {
           live: false,
           count: seedCases.length,
         },
-        cases: seedCases,
+        cases: seedCases.map(normalizeRow),
       },
       200,
     );
     return fallback;
   }
 
-  const cases = dedupe(collected.concat(seedCases)).filter(function (row) {
+  const cases = dedupe(collected.concat(seedCases)).map(normalizeRow).filter(function (row) {
     const s = String(row.summary || "");
     if (!s) return false;
     if (s.indexOf("The court names coercive control") === 0) return false;
