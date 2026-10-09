@@ -211,6 +211,10 @@ def merge_row(a: dict, b: dict) -> dict:
         out["summary"] = lose["summary"]
         if lose.get("disposition"):
             out["disposition"] = lose["disposition"]
+            if lose.get("dispositionSource"):
+                out["dispositionSource"] = lose["dispositionSource"]
+            if lose.get("dispositionQuote"):
+                out["dispositionQuote"] = lose["dispositionQuote"]
         if lose.get("remanded"):
             out["remanded"] = lose["remanded"]
     if not is_published(win) and is_published(lose):
@@ -434,6 +438,8 @@ def map_hit(hit: dict, seed_row: dict | None) -> dict:
         opinion_url = seed_row.get("opinionUrl") if seed_row.get("source") == "official PDF" else (download_url or live_url)
         source = seed_row.get("source") if seed_row.get("source") == "official PDF" else "CourtListener"
         disposition = seed_row.get("disposition") or ""
+        disposition_source = seed_row.get("dispositionSource") or ""
+        disposition_quote = seed_row.get("dispositionQuote") or ""
         remanded = bool(seed_row.get("remanded"))
         rid = seed_row.get("id") or slug(f"{hit.get('court_id')}-{docket}-{iso}")
         citation = seed_row.get("citation") or cites
@@ -442,6 +448,8 @@ def map_hit(hit: dict, seed_row: dict | None) -> dict:
         opinion_url = download_url or live_url
         source = "CourtListener"
         disposition = (seed_row or {}).get("disposition") or ""
+        disposition_source = (seed_row or {}).get("dispositionSource") or ""
+        disposition_quote = (seed_row or {}).get("dispositionQuote") or ""
         remanded = bool((seed_row or {}).get("remanded"))
         rid = slug(f"{hit.get('court_id')}-{docket}-{iso}")
         citation = cites
@@ -467,6 +475,8 @@ def map_hit(hit: dict, seed_row: dict | None) -> dict:
         "dateSort": iso,
         "disposition": disposition,
         "remanded": remanded,
+        "dispositionSource": disposition_source,
+        "dispositionQuote": disposition_quote,
         "summary": summary,
         "opinionUrl": opinion_url,
         "source": source,

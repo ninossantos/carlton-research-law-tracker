@@ -367,7 +367,7 @@ function jsonResponse(body, status, extraHeaders) {
 export async function onRequest(context) {
   const token = (context.env && context.env.COURTLISTENER_TOKEN) || "";
   const cache = caches.default;
-  const cacheKey = new Request("https://tracker.carltonresearch.com/__cache/appeals-v4");
+  const cacheKey = new Request("https://tracker.carltonresearch.com/__cache/appeals-v5");
   const hit = await cache.match(cacheKey);
   if (hit) return hit;
 
