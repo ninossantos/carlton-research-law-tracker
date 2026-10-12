@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Coercive Control Appeal Tracker",
-    "lastUpdated": "October 5, 2026",
+    "lastUpdated": "October 12, 2026",
     "sourceNote": "CourtListener search of United States opinions that use the words coercive control. The list keeps one published card per case. Research, not legal advice.",
     "method": [
       "A published opinion that names coercive control does not finish the work.",
@@ -11,9 +11,28 @@
       "CourtListener supplies the list. The list updates automatically."
     ],
     "live": true,
-    "count": 115
+    "count": 116
   },
   "cases": [
+    {
+      "id": "calctapp-d088471-2026-10-12",
+      "state": "California",
+      "stateAbbr": "CA",
+      "court": "California Court of Appeal",
+      "title": "K.R. v. Super. Ct.",
+      "docket": "D088471",
+      "citation": "",
+      "date": "October 12, 2026",
+      "dateSort": "2026-10-12",
+      "disposition": "",
+      "remanded": false,
+      "dispositionSource": "",
+      "dispositionQuote": "",
+      "summary": "After the children were returned to the parents, Mother completed the dependency drug court program. In early January 2026, however, Mother described coercive control and emotional abuse by Father and sought help to separate from him. Mother and the children entered a domestic",
+      "opinionUrl": "https://www.courts.ca.gov/opinions/documents/D088471.PDF",
+      "source": "CourtListener",
+      "status": "Published"
+    },
     {
       "id": "nyappdiv-2020-05178-2026-09-30",
       "state": "New York",
@@ -105,7 +124,9 @@
       "summary": "Scott Traweek appealed the spousal support award after Candice Traweek rebutted the Family Code section 4325 presumption against support to a spouse convicted of domestic violence. The Court of Appeal affirmed. The trial court treated Scott's concealment and withholding of income as coercive control under Family Code section 6320(c)(3) and weighed that abuse as an equitable factor. The court limited Candice's recovery by denying retroactive support and an Ostler-Smith share of overtime, and by setting a non-modifiable termination date. Certified for publication.",
       "opinionUrl": "https://www.courts.ca.gov/opinions/documents/B336738.PDF",
       "source": "official PDF",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "dc-24-cf-1015-2026-07-30",
@@ -160,7 +181,9 @@
       "summary": "Wife appealed dismissal of her domestic violence restraining order petition and termination of a temporary order mid-hearing, after testimony that Husband struck her and the child, threatened to kill them, threatened deportation, and strictly controlled finances and social relationships. The Court of Appeal reversed and remanded with instructions to reinstate the temporary order and continue the petition hearing. The opinion applied Family Code section 6320, including coercive control as a pattern that in purpose or effect unreasonably interferes with a person's free will and personal liberty. Certified for publication.",
       "opinionUrl": "https://www.courts.ca.gov/opinions/documents/D085597.PDF",
       "source": "official PDF",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "vuth-v-tavakoli",
@@ -177,7 +200,9 @@
       "summary": "Vuth appealed partial summary judgment that limited her intentional infliction of emotional distress claim to the three-year limitations window. The Court of Appeals reversed and remanded. RCW 7.105 defines domestic violence to include coercive control, a pattern of behavior that unreasonably interferes with free will and personal liberty. On the complaint's alleged facts, the court described Tavakoli's coercive control as glaringly obvious and held the continuing-tort doctrine applies to those claims when domestic violence is a continuing course of conduct. Published opinion.",
       "opinionUrl": "https://www.courts.wa.gov/opinions/pdf/D2%2060445-1-II%20Published%20Opinion.pdf",
       "source": "official PDF",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "hawapp-caap-25-0000330-2026-06-12",
@@ -213,7 +238,9 @@
       "summary": "Couto appealed domestic violence protection orders protecting Karina Asbach and Aiden Asbach, plus attorney fees on renewal of a third order. The trial court found Couto's YouTube videos were a form of coercive control under RCW 7.105 and ordered removal of videos naming the protected persons. The Court of Appeals affirmed the protection orders and fee awards, granted appellate attorney fees to Karina and Aiden, and remanded to modify the prohibition against posting videos and other media.",
       "opinionUrl": "https://www.courts.wa.gov/opinions/pdf/D2%2060325-0-II%20Published%20Opinion.pdf",
       "source": "official PDF",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "ggs-v-acb",
@@ -230,7 +257,9 @@
       "summary": "G.G.S. appealed denial of a final restraining order after the trial court credited testimony of forcible sexual assault and strangulation. The Appellate Division reversed and remanded for entry of a final restraining order. Strangulation was treated as coercive control and domination that the Prevention of Domestic Violence Act is designed to forestall. N.J.S.A. 2C:25-29(a)(7) requires courts to consider any pattern of coercive control. Once the credited facts were found, the need for a final restraining order was treated as self-evident under Silver.",
       "opinionUrl": "https://www.njcourts.gov/system/files/court-opinions/2026/a3315-24.pdf",
       "source": "official PDF",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "nysupctwster-2026-03-31",
@@ -247,7 +276,9 @@
       "summary": "Matrimonial actions may also include conduct that amounts to litigation abuse, a form of domestic violence where parties utilize the courts, including prolonging the underlying matrimonial action and following post-judgment litigation, to engage in domestic violence against their spouse. As one author noted: \" 'Litigation abuse' is defined as a batterer's use of the court system as a tool of coercive control over the victim. Batterers often pursue litigation abuse as a tactic for several reasons: it is one of the few remaining ways that they can control a victim after separation, it can drain the victim's financial resources, and family courts allow for parties to demand many hearing.",
       "opinionUrl": "https://nycourts.gov/reporter/current/3dseries/2026/2026_50532.shtml",
       "source": "CourtListener",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "massappct-ac-25-p-524-2026-03-20",
@@ -283,7 +314,9 @@
       "summary": "Both spouses appealed. The Court of Appeal affirmed the domestic violence restraining order against Michael and reversed the mutual order against Marcie. Michael's free-exercise challenge failed as to the order grounded in coercive control: tracking whereabouts, accessing electronic devices and online accounts, monitoring reading material, restricting movement, and appearing uninvited. Harassment, annoyance, and coercive control can support an order without a showing of fear. Certified for publication.",
       "opinionUrl": "https://www.courts.ca.gov/opinions/documents/G063467.PDF",
       "source": "CourtListener",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "tenncrimapp-m2024-00044-cca-r3-cd-2026-03-10",
@@ -338,7 +371,9 @@
       "summary": "DS appealed denial of an HRS chapter 586 order for protection. The Intermediate Court of Appeals affirmed. New 2023 allegations, including inquiries concerning an ex-wife and daughter and a message through a third party, did not establish extreme psychological abuse or an alternative form of abuse including coercive control as defined in HRS 586-1. Issues from a prior proceeding were barred by res judicata. Summary disposition, not for publication.",
       "opinionUrl": "https://www.courts.state.hi.us/wp-content/uploads/2026/02/CAAP-23-0000702sdo.pdf",
       "source": "official PDF",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "smt-v-sa",
@@ -355,7 +390,9 @@
       "summary": "The parties appealed denials of final restraining orders against each other. S.M.T. alleged physical abuse, forced sexual acts, and coercive control. The trial court found simple assault but treated much of the history as marital contretemps and denied an order. The Appellate Division reversed in part and remanded for entry of a final restraining order in favor of S.M.T., holding she proved simple assault, sexual assault, and coercive control and established a likelihood of continued domestic violence. Coercive control is a Silver factor under N.J.S.A. 2C:25-29(a)(7), not a predicate act. Denial of S.A.'s order was affirmed. Approved for publication.",
       "opinionUrl": "https://www.njcourts.gov/system/files/court-opinions/2026/a0973-24a1122-24.pdf",
       "source": "official PDF",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "rr-v-cr",
@@ -372,7 +409,9 @@
       "summary": "R.R. appealed denial of a domestic violence restraining order against his former spouse. The Court of Appeal reversed and remanded with directions to enter the order. The trial court misapplied the Domestic Violence Prevention Act. Family Code section 6320 covers stalking, harassment, and disturbing the peace, including coercive control such as monitoring movements. Past abuse, which the trial court called alarming, sufficed. A showing of probable future abuse was not required. Certified for publication.",
       "opinionUrl": "https://www.courts.ca.gov/opinions/documents/B339866A.PDF",
       "source": "CourtListener",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "idaho-53147-2026-01-15",
@@ -427,7 +466,9 @@
       "summary": "15. Furthermore, notice should not be required because ofthe history ofretaliatory litigation and coercive control exhibited by the Respondent. Providing notice ofthis specific request for funds could prompt Respondent to take actions to obstruct or interfere with the Receiver's ability to promptly comply with the Court's order, thereby frustrating the purpose ofthis emergency motion.",
       "opinionUrl": "https://search.txcourts.gov/SearchMedia.aspx?MediaID=0d88f374-7071-4550-a6f3-7f7266b7c841",
       "source": "CourtListener",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "arkctapp-2025-11-05",
@@ -463,7 +504,9 @@
       "summary": "Misrepresenting the decree (visitation by mutual agreement only) 7. Pattern of coercive conduct (citing “CPS testimony” and “coercive control”) 8. Trial court acted within discretion (abuse-of-discretion standard) 9.",
       "opinionUrl": "https://search.txcourts.gov/SearchMedia.aspx?MediaID=a025cc8a-28d2-4072-b4f9-f7b56d3eeca1",
       "source": "CourtListener",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "nyappdiv-ind-no-73667-21-2025-10-15",
@@ -518,7 +561,9 @@
       "summary": "The defendant appealed a protective order and the denial of a motion to dismiss. The Appellate Court affirmed. The plaintiff's testimony, with that of the guardian ad litem, established a prima facie case of domestic violence under section 46b-1(b), which includes coercive control. The defendant relied on a superseded revision of section 46b-15 and left stalking and coercive control unchallenged.",
       "opinionUrl": "https://www.jud.ct.gov/external/supapp/Cases/AROap/AP235/AP235.328.pdf",
       "source": "official PDF",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "timaeus-v-timaeus",
@@ -535,7 +580,9 @@
       "summary": "Chris Timaeus appealed a domestic violence protection order granted to Gillian Timaeus. He challenged the finding of coercive control, the commissioner's interpretation of that term, denial of revision, and fees. The Court of Appeals affirmed and awarded Gillian fees on appeal. Name-calling, removal of a mattress, flashlight conduct, and threats to the family cat were treated as coercive control. RCW 7.105.010(4)(a) does not require a finding of intent; the effect of the pattern can suffice. Later ordered published.",
       "opinionUrl": "https://www.courts.wa.gov/opinions/pdf/876759orderpubandopin.pdf",
       "source": "official PDF",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "calctapp-a170020m-2025-07-25",
@@ -590,7 +637,9 @@
       "summary": "R.- M. has always denied any violence or issues of coercive control in that relationship. He did tell DCF that he was willing to participate in the program, however, as did Ms.",
       "opinionUrl": "http://www.jud.ct.gov/external/supapp/Cases/AROap/AP233/AP233.267X.pdf",
       "source": "CourtListener",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "hawapp-caap-23-0000489-2025-06-17",
@@ -740,7 +789,9 @@
       "summary": "specified that any new pattern of fighting through the children or coercive control should be considered a change in circumstances for either party to modify custody. ( See : pages 84-85 of Petitioner's 11 ) In April 2017 , the court ordered an update to this report to address what if any impact two (2) new developments might have on recommendations made in Petitioner's 11 .",
       "opinionUrl": "https://nycourts.gov/reporter/current/3dseries/2025/2025_52193.shtml",
       "source": "CourtListener",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "hawapp-caap-24-0000300-2025-05-14",
@@ -776,7 +827,9 @@
       "summary": "The plaintiff appealed after the trial court denied a domestic violence restraining order. The Appellate Court applied a broader definition of coercive control under section 46b-1(b)(4) than the trial court used: the statutory examples are not an exclusive list. Even if conduct while the parties lived together amounted to coercive control, that coercive control had ended by the time of the application. The plaintiff failed to establish a prima facie case under section 46b-1(b)(4). The form of judgment was reversed and the case remanded with direction to dismiss under Practice Book section 15-8.",
       "opinionUrl": "http://www.jud.ct.gov/external/supapp/Cases/AROap/AP232/AP232.198.pdf",
       "source": "CourtListener",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "ohioctapp-c-240044-c-240127-2025-04-30",
@@ -812,7 +865,9 @@
       "summary": "Father appealed a dissolution decree that found domestic violence, awarded Mother sole custody, and granted her attorney fees. The Court of Civil Appeals affirmed. The court applied the 43 O.S. 109 definition of domestic violence, which includes coercive control by a parent involving physical, sexual, psychological, emotional, economic or financial abuse, and held that expansive definition effectuates legislative intent for custody and fee determinations under 43 O.S. 112.6.",
       "opinionUrl": "https://www.oscn.net/applications/oscn/deliverdocument.asp?citeid=550550",
       "source": "CourtListener",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "calctapp-b333127-2025-03-21",
@@ -924,7 +979,9 @@
       "summary": "Such violence can also impact mood, cognition and how a victim interacts with others. Perpetrators of intimate partner violence can exercise coercive control over their victims. Victims of intimate partner violence remain in relationships with their abusers for many reasons including fear, having nowhere else to go, lack of financial support, or fear of losing custody of children.",
       "opinionUrl": "https://nycourts.gov/reporter/3dseries/2024/2024_24281.htm",
       "source": "CourtListener",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "utahctapp-20230913-ca-2024-10-31",
@@ -1036,7 +1093,9 @@
       "summary": "G.G. appealed denial of renewal of a domestic violence restraining order originally issued for stalking. The Court of Appeal reversed and remanded for a new hearing under the Ritchie reasonable-apprehension framework. Family Code section 6320(c) defines abuse to include coercive control, including monitoring movements and communications. Physical abuse and non-physical abuse are not treated as different classes when a court decides whether to issue or renew an order. Certified for publication.",
       "opinionUrl": "http://www.courts.ca.gov/opinions/documents/B331994.PDF",
       "source": "CourtListener",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "ohioctapp-c-230235-2024-05-01",
@@ -1110,7 +1169,9 @@
       "summary": "She contends in her affidavit dated July 13, 2023 that after the parties reconciled \"Defendant escalated the financial, verbal, emotional, physical and sexual abuse and coercive control in which he had engaged before our separation\" including in the presence of the child.",
       "opinionUrl": "https://nycourts.gov/reporter/3dseries/2024/2024_24090.htm",
       "source": "CourtListener",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "washctapp-83738-9-2024-01-02",
@@ -1165,7 +1226,9 @@
       "summary": "Olsen appealed a domestic violence protection order granted to Graser. He argued the court needed live testimony and that substantial evidence did not support coercive control. The Court of Appeals affirmed. Olsen did not request live testimony in the trial court. Substantial evidence supported the finding of coercive control under RCW 7.105, including use of firearms and threats to commit suicide, examples listed in the statute. Filed for public record, not printed in the Washington Appellate Reports.",
       "opinionUrl": "https://www.courts.wa.gov/opinions/pdf/392961_ord.pdf",
       "source": "official PDF",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "tennctapp-m2023-01298-coa-t10b-cv-2023-11-07",
@@ -1239,7 +1302,9 @@
       "summary": "Hatley appealed denial of a domestic violence restraining order. The trial court treated a pattern of control and isolation, including limits on money, communication, and transportation, as outside the statutory definition of abuse. The Court of Appeal reversed and remanded for a new hearing. Attempts to control, regulate, and monitor a spouse's finances, economic resources, movements, and access to communications are abuse, including coercive control under Family Code section 6320(c). Certified for publication.",
       "opinionUrl": "http://www.courts.ca.gov/opinions/documents/E080000.PDF",
       "source": "CourtListener",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "washctapp-84157-2-2023-06-26",
@@ -1370,7 +1435,9 @@
       "summary": "Perhaps it may be time for us to explicitly acknowledge this fact in order not only to recognize that domestic violence is often a repeated offense characterized by escalating levels of coercive control, often starting out as verbal and emotional control and resulting, over time, in incidents of serious physical violence, as already acknowledged by our Supreme Court in State v.",
       "opinionUrl": "http://www.jud.ct.gov/external/supapp/Cases/AROap/AP216/216AP375E.pdf",
       "source": "CourtListener",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "illappct-1-18-1463-2022-06-29",
@@ -1425,7 +1492,9 @@
       "summary": "Morgan Keen Hecht, a licensed indepen - dent mental health practitioner and licensed certified social worker, offered expert testimony concerning domestic abuse, domestic violence, and coercive control, and she described her treatment of the respondent from December 2020 to the",
       "opinionUrl": "https://www.nebraska.gov/apps-courts-epub/public/viewOpinion?docId=N00008591PUB",
       "source": "CourtListener",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "nyappdiv-docket-no-v15528-17-v15532-17-17a-appeal-no-15534-15534a-case-no-2021-0",
@@ -1518,7 +1587,9 @@
       "summary": "Mother appealed a three-year domestic violence restraining order issued after an urgent-care custody clash that the responding officer described as a child custody dispute. The Court of Appeal reversed and directed denial of the order. Applying Family Code section 6320, including the coercive control definition and its legislative guardrails, the court held Mother's conduct showed poor co-parenting but did not destroy Father's mental and emotional calm within the meaning of the Domestic Violence Prevention Act. Certified for publication.",
       "opinionUrl": "http://www.courts.ca.gov/opinions/documents/D077533.PDF",
       "source": "CourtListener",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "dcd-criminal-no-2019-0390-2021-06-11",
@@ -1535,7 +1606,9 @@
       "summary": "Wilkins’s telephone conversations with L.H., when viewed through the lens of the type of coercive control typical in abusive relationships, were “threatening” and accordingly must have “cause[d] [her] to be fearful.” Hr’g Tr.",
       "opinionUrl": "https://ecf.dcd.uscourts.gov/cgi-bin/show_public_doc?2019cr0390-84",
       "source": "CourtListener",
-      "status": "Published"
+      "status": "Published",
+      "dispositionSource": "",
+      "dispositionQuote": ""
     },
     {
       "id": "mdctspecapp-2716-18-2021-05-04",
