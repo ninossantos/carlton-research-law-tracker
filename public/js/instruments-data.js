@@ -68,7 +68,7 @@ window.CC_INSTRUMENTS = {
       "accomplishes": "Connecticut writes coercive control into C.G.S. 46b-1 and 46b-15 through Jennifer's Law, PA 21-78, signed June 28, 2021, so a civil restraining order may rest on the named term.",
       "date": "June 28, 2021",
       "dateSort": "2021-06-28",
-      "sourceUrl": "https://www.cga.ct.gov/2021/ACT/PA/PDF/2021PA-00078-R00HB-06549-PA.PDF",
+      "sourceUrl": "https://www.cga.ct.gov/2021/ACT/PA/PDF/2021PA-00078-R00SB-01091-PA.PDF",
       "namedTerm": true,
       "scored": true
     },
@@ -84,7 +84,7 @@ window.CC_INSTRUMENTS = {
       "accomplishes": "Connecticut custody determinations under C.G.S. 46b-56 draw on the coercive control definition written into 46b-1 by Jennifer's Law, PA 21-78, signed June 28, 2021.",
       "date": "June 28, 2021",
       "dateSort": "2021-06-28",
-      "sourceUrl": "https://www.cga.ct.gov/2021/ACT/PA/PDF/2021PA-00078-R00HB-06549-PA.PDF",
+      "sourceUrl": "https://www.cga.ct.gov/2021/ACT/PA/PDF/2021PA-00078-R00SB-01091-PA.PDF",
       "namedTerm": true,
       "scored": true
     },
@@ -116,7 +116,7 @@ window.CC_INSTRUMENTS = {
       "accomplishes": "Vermont writes coercive controlling behavior into 15 V.S.A. 1101 (Act 103, effective July 1, 2024), so a relief-from-abuse order may rest on the named term.",
       "date": "July 1, 2024",
       "dateSort": "2024-07-01",
-      "sourceUrl": "https://legislature.vermont.gov/statutes/section/15/110/01101",
+      "sourceUrl": "https://legislature.vermont.gov/statutes/section/15/021/01101",
       "namedTerm": true,
       "scored": true,
       "notes": "The statutory phrase is coercive controlling behavior, which meets the coercive control statute test."
@@ -197,7 +197,7 @@ window.CC_INSTRUMENTS = {
       "accomplishes": "Oklahoma requires custody and visitation determinations to consider coercive control under 43 O.S. 109 (SB 901, effective November 1, 2024).",
       "date": "November 1, 2024",
       "dateSort": "2024-11-01",
-      "sourceUrl": "https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=79085",
+      "sourceUrl": "https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=71822",
       "namedTerm": true,
       "scored": true
     },
@@ -325,7 +325,7 @@ window.CC_INSTRUMENTS = {
       "accomplishes": "Louisiana R.S. 46:2132(3) does not say coercive control. Secondary lists that treat Louisiana as a coercive control statute jurisdiction overstate the statute.",
       "date": "n/a",
       "dateSort": "2026-04-24",
-      "sourceUrl": "https://www.legis.la.gov/legis/Law.aspx?d=99907",
+      "sourceUrl": "https://www.legis.la.gov/legis/Law.aspx?d=100555",
       "namedTerm": false,
       "scored": false
     },
@@ -357,7 +357,7 @@ window.CC_INSTRUMENTS = {
       "accomplishes": "Pennsylvania Act 8 of 2024 (Kayden's Law) does not use the words coercive control. Pennsylvania state Kayden's Law is not federal.",
       "date": "2024",
       "dateSort": "2024-01-01",
-      "sourceUrl": "https://www.palegis.us/legislation/acts/public-act-summary?sessYr=2023&actNum=8",
+      "sourceUrl": "https://www.palegis.us/statutes/consolidated/view-statute?ActNum=8&SessInd=0&SessYr=2024&sectionDesc=&txtType=PDF",
       "namedTerm": false,
       "scored": false
     },
@@ -421,7 +421,7 @@ window.CC_INSTRUMENTS = {
       "accomplishes": "Illinois HB 4659 kept DOMESTIC VIOL-COERCIVE CONTROL in the title. A Senate amendment stripped coercive control. Final text of PA 104-0556 is coerced-debt under the Consumer Installment Loan Act, effective January 1, 2027.",
       "date": "January 1, 2027",
       "dateSort": "2027-01-01",
-      "sourceUrl": "https://www.ilga.gov/legislation/publicacts/104/104-0556.htm",
+      "sourceUrl": "https://www.ilga.gov/documents/legislation/publicacts/104/104-0556.htm",
       "namedTerm": false,
       "scored": false
     },
@@ -617,7 +617,7 @@ window.CC_INSTRUMENTS = {
       "accomplishes": "South Australia enacted a standalone coercive control offence through the Criminal Law Consolidation (Coercive Control) Amendment Act 2025 (No 35 of 2025). Commencement awaits a day fixed by proclamation, so the offence is not in force.",
       "date": "September 2025",
       "dateSort": "2025-09-04",
-      "sourceUrl": "https://classic.austlii.edu.au/au/legis/sa/num_act/clccaa202535o2025550/s2.html",
+      "sourceUrl": "https://www.legislation.sa.gov.au/lz?path=/v/a/2025/criminal%20law%20consolidation%20(coercive%20control)%20amendment%20act%202025_35",
       "namedTerm": true,
       "scored": true,
       "notes": "AustLII s.2: the Act comes into operation on a day to be fixed by proclamation."
